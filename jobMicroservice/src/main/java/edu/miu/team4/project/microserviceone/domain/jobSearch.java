@@ -1,4 +1,4 @@
 package edu.miu.team4.project.microserviceone.domain;
 
-public class tmInstructor {
+public class jobSearch {
 }
