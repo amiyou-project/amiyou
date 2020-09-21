@@ -20,7 +20,8 @@ public class Course {
 	//private List<Student> students;
 	private Date start;
 	private Date end;
-	private int ta_id;
+	private int taId;
+	private int studentId;
 	@OneToMany(mappedBy="course")
 	private List<Attendance> attendances;
 	
@@ -71,14 +72,23 @@ public class Course {
 		this.end = end;
 	}
 	public int getTA() {
-		return ta_id;
+		return taId;
 	}
 	public void setTA(int tA) {
-		ta_id = tA;
+		taId = tA;
 	}
 	public void addAttendance(Attendance a) {
 		this.attendances.add(a);
 	}
+
+	public int getStudentId() {
+		return studentId;
+	}
+
+	public void setStudentId(int studentId) {
+		this.studentId = studentId;
+	}
+	
 	
 	
 	
