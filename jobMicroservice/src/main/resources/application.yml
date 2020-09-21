@@ -1,0 +1,17 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: first-microservice
+  datasource:
+    url: jdbc:mysql://localhost/project
+    username: ea
+    password: cs544
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyComponentPathImpl
+
