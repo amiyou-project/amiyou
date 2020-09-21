@@ -16,7 +16,7 @@ public class CourseController {
 	private CourseService courseService;
 
 	@GetMapping("/{id}")
-	public Course getAllCountries(@PathVariable int id) {
+	public Course getCourse(@PathVariable int id) {
 		return courseService.getCourseById(id);
 	}
 }
