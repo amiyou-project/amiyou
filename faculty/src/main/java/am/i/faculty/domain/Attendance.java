@@ -5,8 +5,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
-import am.i.student.domain.Student;
 @Entity
 public class Attendance {
 	@Id
@@ -15,35 +15,31 @@ public class Attendance {
 	private Date courseDate;
 	private boolean isAttended;
 	private String description;
-	private Student student;
+	private int student_id;
+	@ManyToOne
 	private Course course;
-		
-	
-	
 	
 	public Attendance() {
-		super();
-		
-	
+		super();	
 	}
 	
-	public Attendance(Date courseDate, boolean isAttended, String description, Student student, Course course) {
+	public Attendance(Date courseDate, boolean isAttended, String description, int student_id, Course course) {
 		super();
 		this.courseDate = courseDate;
 		this.isAttended = isAttended;
 		this.description = description;
-		this.student = student;
+		this.student_id = student_id;
 		this.course = course;
 	}
 
 	public Date getCourseDate() {
 		return courseDate;
 	}
-	public Student getStudent() {
-		return student;
+	public int getStudent() {
+		return student_id;
 	}
-	public void setStudent(Student student) {
-		this.student = student;
+	public void setStudent(int student) {
+		this.student_id = student;
 	}
 	public Course getCourse() {
 		return course;
