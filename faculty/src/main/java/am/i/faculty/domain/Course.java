@@ -12,6 +12,7 @@ import javax.persistence.OneToMany;
 public class Course {
 	@Id
 	@GeneratedValue
+	private int id;
 	private String title;
 	private String building;
 	private String room;
@@ -23,7 +24,10 @@ public class Course {
 	@OneToMany(mappedBy="course")
 	private List<Attendance> attendances;
 	
-	public Course() {}
+	public Course(String title, int ta_id) {
+		this.title = title;
+		this.ta_id = ta_id;
+	}
 	
 	public String getTitle() {
 		return title;
