@@ -12,6 +12,7 @@ public class Course {
 	private Date start;
 	private Date end;
 	private Student TA;
+	private List<Attendance> attendances;
 	
 	public Course() {}
 	
@@ -62,6 +63,9 @@ public class Course {
 	}
 	public void setTA(Student tA) {
 		TA = tA;
+	}
+	public void addAttendance(Attendance a) {
+		this.attendances.add(a);
 	}
 	
 	
