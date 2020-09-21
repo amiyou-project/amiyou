@@ -8,6 +8,8 @@ public class FacultyApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(FacultyApplication.class, args);
+		
+		System.out.println("this is just a trial you can delete it");
 	}
 
 }
