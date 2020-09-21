@@ -9,7 +9,7 @@
  * org.springframework.web.bind.annotation.RequestMapping; import
  * org.springframework.web.bind.annotation.RestController;
  * 
- * import am.i.tm.tmdomain.Student; import am.i.tm.tmservice.IStudentService;
+ * import am.i.tm.tmdomain.Studentdd; import am.i.tm.tmservice.IStudentService;
  * 
  * @RestController
  * 
@@ -17,12 +17,12 @@
  * 
  * @Autowired private IStudentService studentService;
  * 
- * @GetMapping("/add") public void addStudent() { Student student=new
- * Student(126,"TestName","Lastname",3.8); studentService.addStudent(student);
+ * @GetMapping("/add") public void addStudent() { Studentdd student=new
+ * Studentdd(126,"TestName","Lastname",3.8); studentService.addStudent(student);
  * 
  * }
  * 
- * @GetMapping("/show") public List<Student> showStudent() { return
+ * @GetMapping("/show") public List<Studentdd> showStudent() { return
  * studentService.showStudent();
  * 
  * }

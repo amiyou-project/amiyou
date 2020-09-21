@@ -4,10 +4,10 @@
 //
 //import org.springframework.stereotype.Service;
 //
-//import am.i.tm.tmdomain.Student;
+//import am.i.tm.tmdomain.Studentdd;
 //@Service
 //public interface IStudentService {
-//	public void addStudent(Student student);
+//	public void addStudent(Studentdd student);
 //
-//	public List<Student> showStudent();
+//	public List<Studentdd> showStudent();
 //}

@@ -7,13 +7,13 @@
  * org.springframework.stereotype.Service;
  * 
  * import am.i.tm.tmRepository.StudentRepository; import
- * am.i.tm.tmdomain.Student;
+ * am.i.tm.tmdomain.Studentdd;
  * 
  * @Service public class StudentServiceImpl implements IStudentService {
  * 
  * @Autowired private StudentRepository studentRepository;
  * 
- * public void addStudent(Student student) { studentRepository.save(student); }
+ * public void addStudent(Studentdd student) { studentRepository.save(student); }
  * 
- * public List<Student> showStudent() { return studentRepository.findAll(); } }
+ * public List<Studentdd> showStudent() { return studentRepository.findAll(); } }
  */
