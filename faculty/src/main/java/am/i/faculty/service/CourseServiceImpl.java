@@ -1,5 +1,7 @@
 package am.i.faculty.service;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,5 +20,10 @@ public class CourseServiceImpl implements CourseService {
 		if (courseRepository.findById(id).isPresent())
 			return courseRepository.findById(id).get();
 		return null;
+	}
+
+	@Override
+	public List<Course> getCourseByStudentId(int student_id) {
+		return courseRepository.findByStudentId(student_id);
 	}
 }
