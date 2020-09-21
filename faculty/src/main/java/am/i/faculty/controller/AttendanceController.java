@@ -1,4 +1,4 @@
-package controller;
+package am.i.faculty.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 

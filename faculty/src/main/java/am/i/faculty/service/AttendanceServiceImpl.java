@@ -1,4 +1,4 @@
-package service;
+package am.i.faculty.service;
 
 public class AttendanceServiceImpl {
 

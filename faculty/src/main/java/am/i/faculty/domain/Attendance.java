@@ -1,4 +1,4 @@
-package domain;
+package am.i.faculty.domain;
 
 import java.time.LocalDate;
 import java.util.Date;
