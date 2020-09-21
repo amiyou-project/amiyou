@@ -16,7 +16,7 @@ public class Job {
     private Date startDate;
 
     @OneToMany
-    //@JoinColumn(name="job_id")
+    @JoinColumn(name="job_id")
     private List<CptReport> cptReports=new ArrayList();
 
     public Job() {
