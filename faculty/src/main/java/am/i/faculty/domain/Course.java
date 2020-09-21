@@ -24,10 +24,7 @@ public class Course {
 	@OneToMany(mappedBy="course")
 	private List<Attendance> attendances;
 	
-	public Course(String title, int ta_id) {
-		this.title = title;
-		this.ta_id = ta_id;
-	}
+	public Course() { }
 	
 	public String getTitle() {
 		return title;
