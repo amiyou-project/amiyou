@@ -1,11 +1,11 @@
-package domain;
+package am.i.faculty.domain;
 
-import java.time.LocalDate;
 import java.util.Date;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-
+@Entity
 public class Attendance {
 	@Id
 	@GeneratedValue
@@ -17,9 +17,9 @@ public class Attendance {
 	
 	
 	
-	public Attendance(Integer id, Date courseDate, boolean isAttended, String description) {
+	public Attendance(Date courseDate, boolean isAttended, String description) {
 		super();
-		this.id = id;
+		
 		this.courseDate = courseDate;
 		this.isAttended = isAttended;
 		this.description = description;
