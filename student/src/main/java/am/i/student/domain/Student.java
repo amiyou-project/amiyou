@@ -3,14 +3,10 @@ package am.i.student.domain;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+
 
 @Entity
-public class Student {
-	@Id
-	@GeneratedValue
-	private int id;
+public class Student extends Person {
 	
 	private int studentId;
 	private Date enrollDate;
@@ -18,8 +14,8 @@ public class Student {
 	private float gpa;
 	
 	public Student() {}
-	public Student(int studentId, Date enrollDate) {
-		super();
+	public Student(String name,Address add,int studentId, Date enrollDate) {
+		super(name,add);
 		this.studentId = studentId;
 		this.enrollDate = enrollDate;
 		this.gpa = 0;
@@ -50,15 +46,10 @@ public class Student {
 	public void setGpa(float gpa) {
 		this.gpa = gpa;
 	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+	
 	@Override
 	public String toString() {
-		return "Student [id=" + id + ", studentId=" + studentId + ", enrollDate=" + enrollDate + ", gradDate="
+		return "Student [studentId=" + studentId + ", enrollDate=" + enrollDate + ", gradDate="
 				+ gradDate + ", gpa=" + gpa + "]";
 	}
 	

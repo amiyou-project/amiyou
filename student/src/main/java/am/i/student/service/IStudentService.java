@@ -13,4 +13,6 @@ public List<Student> getAllStudent();
 	
 	public Student getStudentByName(String name);
 
+	public void addStudents(List<Student> stud);
+
 }
