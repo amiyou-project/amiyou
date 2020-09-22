@@ -13,10 +13,10 @@ public class Job {
     private long id;
     private String title;
     private String salary;
+    @Temporal(TemporalType.DATE)
     private Date startDate;
 
-    @OneToMany
-    @JoinColumn(name="job_id")
+    @OneToMany(mappedBy = "job")
     private List<CptReport> cptReports=new ArrayList();
 
     public Job() {
@@ -52,6 +52,25 @@ public class Job {
 
     public void setStartDate(Date startDate) {
         this.startDate = startDate;
+    }
+
+    public boolean addCptReport(CptReport cptReport){
+        boolean success = false;
+        if (cptReports.add(cptReport)) {
+            cptReport.setJob(this);
+            success = true;
+        }
+        return success;
+    }
+
+    public boolean removeCptReport(CptReport cptReport){
+
+        boolean success = false;
+        if (cptReports.remove(cptReport)) {
+            cptReport.setJob(null);
+            success = true;
+        }
+        return success;
     }
 
     public List<CptReport> getCptReports() {
