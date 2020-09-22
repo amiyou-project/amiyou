@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import am.i.tm.tmdomain.TMInstructor;
 
 @Repository
-public interface instructorRepository extends JpaRepository<TMInstructor, Integer>{
+public interface InstructorRepository extends JpaRepository<TMInstructor, Integer>{
 
 }
