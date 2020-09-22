@@ -18,6 +18,7 @@ public class Course {
 	private String room;
 	//private Faculty professor;
 	//private List<Student> students;
+	private List<Integer> studentIds;
 	private Date start;
 	private Date end;
 	private int taId;
