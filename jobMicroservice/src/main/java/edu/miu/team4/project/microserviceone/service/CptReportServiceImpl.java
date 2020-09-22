@@ -37,6 +37,7 @@ public class CptReportServiceImpl implements CptReportService{
 
     @Override
     public Student getStudentById(int id) {
-        return restTemplate.getForObject("http://localhost:8085/students/{id}",Student.class);
+        System.out.println("we hit thin7s point");
+        return restTemplate.getForObject("http://localhost:8085/students/"+id+"",Student.class);
     }
 }
