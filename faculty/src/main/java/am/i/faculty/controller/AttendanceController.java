@@ -1,5 +1,7 @@
 package am.i.faculty.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,5 +22,8 @@ public class AttendanceController {
 	 public Attendance getAttendance(@PathVariable int id) {
 		 return attendanceService.getAttendanceById(id);
 	 }
-
+	 @GetMapping("/student/{student_id}/course/{course_id}")
+		public List<Attendance> getStudentCourses(@PathVariable int student_id, @PathVariable int course_id) {
+			return attendanceService.getAttendanceByCourseAndStudentId(student_id,course_id);
+		}
 }
