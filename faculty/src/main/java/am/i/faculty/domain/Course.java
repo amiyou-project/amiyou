@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -18,11 +19,13 @@ public class Course {
 	private String room;
 	//private Faculty professor;
 	//private List<Student> students;
-	private List<Integer> studentIds;
+	//private List<Integer> studentIds;
 	private Date start;
 	private Date end;
 	private int taId;
 	private int studentId;
+	//@ManyToOne
+	//private Student student;
 	@OneToMany(mappedBy="course")
 	private List<Attendance> attendances;
 	
@@ -81,7 +84,6 @@ public class Course {
 	public void addAttendance(Attendance a) {
 		this.attendances.add(a);
 	}
-
 	public int getStudentId() {
 		return studentId;
 	}
@@ -89,8 +91,4 @@ public class Course {
 	public void setStudentId(int studentId) {
 		this.studentId = studentId;
 	}
-	
-	
-	
-	
 }
