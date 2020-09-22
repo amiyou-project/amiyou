@@ -1,13 +1,12 @@
-package am.i.faculty.domain;
+package am.i.databaseBuilder;
 
 import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-
-import am.i.student.domain.Address;
-import am.i.student.domain.Person;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 
 @Entity
@@ -16,7 +15,10 @@ public class Student extends Person {
 	private Date enrollDate;
 	private Date gradDate;
 	private float gpa;
-	@OneToMany(mappedBy="student")
+	@ManyToOne
+	private Coach coach;
+	@ManyToMany
+	@JoinTable
 	private List<Course> courses;
 	
 	public Student() {}
