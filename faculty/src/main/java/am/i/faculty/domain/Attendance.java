@@ -13,7 +13,7 @@ public class Attendance {
 	@GeneratedValue
 	private Integer id;
 	private Date courseDate;
-	private boolean isAttended;
+	private int sessionAttended;
 	private String description;
 	private Student student;
 	private Course course;
@@ -27,15 +27,15 @@ public class Attendance {
 	
 	}
 	
-	public Attendance(Date courseDate, boolean isAttended, String description, Student student, Course course) {
+	public Attendance(Date courseDate, int sessionAttended, String description, Student student, Course course) {
 		super();
 		this.courseDate = courseDate;
-		this.isAttended = isAttended;
+		this.sessionAttended = sessionAttended;
 		this.description = description;
 		this.student = student;
 		this.course = course;
 	}
-
+ 
 	public Date getCourseDate() {
 		return courseDate;
 	}
@@ -54,11 +54,11 @@ public class Attendance {
 	public void setCourseDate(Date courseDate) {
 		this.courseDate = courseDate;
 	}
-	public boolean isAttended() {
-		return isAttended;
+	public int sessionAttended() {
+		return sessionAttended;
 	}
-	public void setAttended(boolean isAttended) {
-		this.isAttended = isAttended;
+	public void setAttended(int sessionAttended) {
+		this.sessionAttended = sessionAttended;
 	}
 	public String getDescription() {
 		return description;
