@@ -1,3 +1,4 @@
+
 package am.i.tm.tmcontroller;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +11,10 @@ import am.i.tm.tmdomain.TMAttendance;
 import am.i.tm.tmservice.TMAttendanceService;
 
 @RestController
+
 @RequestMapping("/attendances")
 public class TMAttendanceController {
+
 	@Autowired
 	TMAttendanceService tmattendanceService;
 
