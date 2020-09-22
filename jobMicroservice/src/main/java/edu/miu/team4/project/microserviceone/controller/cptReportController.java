@@ -1,5 +1,6 @@
 package edu.miu.team4.project.microserviceone.controller;
 
+import am.i.student.domain.Student;
 import edu.miu.team4.project.microserviceone.domain.CptReport;
 import edu.miu.team4.project.microserviceone.service.CptReportService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,5 +28,13 @@ public class cptReportController {
     @PostMapping("/saveCptReport")
     public CptReport saveCptReport(@RequestBody CptReport cptReport){
         return cptReportService.saveCptReport(cptReport);
+    }
+    @GetMapping("/students")
+    public List<Student> getStudents(){
+        return cptReportService.getStudents();
+    }
+    @GetMapping("/students/{id}")
+    public Student getStudentById(@PathVariable int id) {
+        return cptReportService.getStudentById(id);
     }
 }
