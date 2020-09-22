@@ -5,18 +5,18 @@
  * 
  * @Entity public class Student {
  * 
- * @Id private int stud_id; private String fname; private String lname; private
+ * @Id private int id; private String fname; private String lname; private
  * Double GPA;
  * 
  * public Student() { super(); }
  * 
  * public Student(int stud_id, String fname, String lname, Double gPA) {
- * super(); this.stud_id = stud_id; this.fname = fname; this.lname = lname; GPA
- * = gPA; }
+ * super(); this.id = stud_id; this.fname = fname; this.lname = lname; GPA =
+ * gPA; }
  * 
- * public int getStud_id() { return stud_id; }
+ * public int getStud_id() { return id; }
  * 
- * public void setStud_id(int stud_id) { this.stud_id = stud_id; }
+ * public void setStud_id(int stud_id) { this.id = stud_id; }
  * 
  * public String getFname() { return fname; }
  * 
@@ -30,7 +30,7 @@
  * 
  * public void setGPA(Double gPA) { GPA = gPA; }
  * 
- * @Override public String toString() { return "Studentdd [stud_id=" + stud_id +
+ * @Override public String toString() { return "Studentdd [stud_id=" + id +
  * ", fname=" + fname + ", lname=" + lname + ", GPA=" + GPA + "]"; }
  * 
  * }

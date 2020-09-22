@@ -5,6 +5,6 @@ package am.i.tm.tmservice;
 import am.i.tm.tmdomain.TMInstructor;
 
 
-public interface instructorService {
+public interface InstructorService {
 	public TMInstructor getInstructorById(int id);
 }

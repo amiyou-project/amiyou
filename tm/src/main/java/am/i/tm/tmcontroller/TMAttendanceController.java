@@ -7,22 +7,19 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
-import am.i.tm.tmdomain.TMInstructor;
-import am.i.tm.tmservice.instructorService;
-
+import am.i.tm.tmdomain.TMAttendance;
+import am.i.tm.tmservice.TMAttendanceService;
 
 @RestController
-@RequestMapping("/instructors")
-public class instructorController {
+
+@RequestMapping("/attendances")
+public class TMAttendanceController {
 
 	@Autowired
-	instructorService instructorservice;
+	TMAttendanceService tmattendanceService;
 
 	@GetMapping("/{id}")
-	public TMInstructor getInstructor(@PathVariable int id) {
-		return instructorservice.getInstructorById(id);
+	public TMAttendance getAttendance(@PathVariable int id) {
+		return tmattendanceService.getAttendanceById(id);
 	}
-  
-  }
-
+}

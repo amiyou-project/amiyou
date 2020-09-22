@@ -4,27 +4,25 @@ package am.i.tm.tmdomain;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-
 @Entity
-public class TMInstructor  {
+public class TMInstructor {
 
 	@Id
-	private int instructor_id;
+	private Integer id;
 	private String fname;
 	private String lname;
-	private int officeNo;
+	private Integer officeNo;
 	private String jobdescription;
-	private int tmExprience;
-	private int  stud_id;
-	
-	//@OneToMany
-   // private List<Student>studs=new ArrayList<Student>();
+	private Integer tmExprience;
+	private Integer stud_id;
+	// @OneToMany
+	// private List<Student>students=new ArrayList<Student>();
+
 	/*
 	 * @OneToMany(cascade = CascadeType.PERSIST) private List<Studentdd> students =
 	 * new ArrayList<Studentdd>();
@@ -39,71 +37,97 @@ public class TMInstructor  {
 		super();
 	}
 
-	public TMInstructor(int instructor_id, String fname, String lname, int officeNo, String jobdescription,
-			int tmExprience) {
+	
+	public TMInstructor(Integer id, String fname, String lname, Integer officeNo, String jobdescription,
+			Integer tmExprience, Integer stud_id) {
 		super();
-		this.instructor_id = instructor_id;
+		this.id = id;
 		this.fname = fname;
 		this.lname = lname;
 		this.officeNo = officeNo;
 		this.jobdescription = jobdescription;
 		this.tmExprience = tmExprience;
+		this.stud_id = stud_id;
 	}
 
-	public int getInstructor_id() {
-		return instructor_id;
+
+	public Integer getId() {
+		return id;
 	}
 
-	public void setInstructor_id(int instructor_id) {
-		this.instructor_id = instructor_id;
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
+
 
 	public String getFname() {
 		return fname;
 	}
 
+
 	public void setFname(String fname) {
 		this.fname = fname;
 	}
+
 
 	public String getLname() {
 		return lname;
 	}
 
+
 	public void setLname(String lname) {
 		this.lname = lname;
 	}
 
-	public int getOfficeNo() {
+
+	public Integer getOfficeNo() {
 		return officeNo;
 	}
 
-	public void setOfficeNo(int officeNo) {
+
+	public void setOfficeNo(Integer officeNo) {
 		this.officeNo = officeNo;
 	}
+
 
 	public String getJobdescription() {
 		return jobdescription;
 	}
 
+
 	public void setJobdescription(String jobdescription) {
 		this.jobdescription = jobdescription;
 	}
 
-	public int getTmExprience() {
+
+	public Integer getTmExprience() {
 		return tmExprience;
 	}
 
-	public void setTmExprience(int tmExprience) {
+
+	public void setTmExprience(Integer tmExprience) {
 		this.tmExprience = tmExprience;
 	}
 
-	
+
+	public Integer getstud_id() {
+		return stud_id;
+	}
+
+
+	public void setstud_id(Integer stud_id) {
+		this.stud_id = stud_id;
+	}
+
+
 	@Override
 	public String toString() {
-		return "TMInstructor [instructor_id=" + instructor_id + ", fname=" + fname + ", lname=" + lname + ", officeNo="
-				+ officeNo + ", jobdescription=" + jobdescription + ", tmExprience=" + tmExprience + ", students="
-				 + "]";
+		return "TMInstructor [id=" + id + ", fname=" + fname + ", lname=" + lname + ", officeNo=" + officeNo
+				+ ", jobdescription=" + jobdescription + ", tmExprience=" + tmExprience + ", stud_id=" + stud_id + "]";
 	}
+
+
+	
 
 }

@@ -5,14 +5,14 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import am.i.tm.tmRepository.instructorRepository;
+import am.i.tm.tmRepository.InstructorRepository;
 import am.i.tm.tmdomain.TMInstructor;
 
 @Service
 @Transactional
-public class instructorServiceImpl implements instructorService{
+public class InstructorServiceImpl implements InstructorService{
 @Autowired
-private instructorRepository repository;
+private InstructorRepository repository;
 
 public TMInstructor getInstructorById(int id) {
 	if(repository.findById(id).isPresent()) {
