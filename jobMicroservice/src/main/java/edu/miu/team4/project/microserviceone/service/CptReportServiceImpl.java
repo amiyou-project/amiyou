@@ -42,7 +42,11 @@ public class CptReportServiceImpl implements CptReportService{
 
     @Override
     public List<Student> getStudents() {
-        return restTemplate.getForObject("http://localhost:8086/students",List.class);
+        System.out.println("we hit this point");
+        String url = "http://localhost:8086/students";
+        ResponseEntity<List> responseEntity = restTemplate.exchange(url, HttpMethod.GET, null, List.class );
+        List<Student> student = responseEntity.getBody();
+        return student;
     }
 
     @Override

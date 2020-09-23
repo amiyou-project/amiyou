@@ -3,14 +3,15 @@ package edu.miu.team4.project.microserviceone.DTO;
 import java.util.Date;
 
 public class Student {
-
+    private int id;
     private int studentId;
     private Date enrollDate;
     private Date gradDate;
     private float gpa;
     private long coachId;
 
-    public Student(int studentId, Date enrollDate, Date gradDate, float gpa, long coachId) {
+    public Student(int id, int studentId, Date enrollDate, Date gradDate, float gpa, long coachId) {
+        this.id = id;
         this.studentId = studentId;
         this.enrollDate = enrollDate;
         this.gradDate = gradDate;
@@ -59,5 +60,13 @@ public class Student {
 
     public void setCoachId(long coachId) {
         this.coachId = coachId;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
