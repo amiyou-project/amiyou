@@ -1,9 +1,12 @@
 package edu.miu.team4.project.microserviceone.controller;
 
-import am.i.student.domain.Student;
+import edu.miu.team4.project.microserviceone.DTO.Student;
+import edu.miu.team4.project.microserviceone.domain.Coach;
 import edu.miu.team4.project.microserviceone.domain.CptReport;
 import edu.miu.team4.project.microserviceone.domain.Job;
+import edu.miu.team4.project.microserviceone.domain.JobSearchReport;
 import edu.miu.team4.project.microserviceone.service.CptReportService;
+import edu.miu.team4.project.microserviceone.service.JobSearchReportService;
 import edu.miu.team4.project.microserviceone.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -20,6 +23,9 @@ public class CoachController {
     @Autowired
     public CptReportService cptReportService;
 
+    @Autowired
+    public JobSearchReportService jobSearchReportService;
+
     @GetMapping
     public String hello(){
         return "hello here";
@@ -32,7 +38,6 @@ public class CoachController {
     }
     @GetMapping("/students")
     public List<Student> getStudents(){
-
         return cptReportService.getStudents();
     }
     @GetMapping(value = {"/studentsList"})
@@ -40,10 +45,24 @@ public class CoachController {
         model.addAttribute("allStudents", getStudents());
         return "studentList";
     }
+
+    @PostMapping("/createJobSearchReport")
+    public JobSearchReport createJob(@RequestBody JobSearchReport jobSearchReport){
+        return jobSearchReportService.saveJobSearchReport(jobSearchReport);
+
+    }
+//    @GetMapping("/all")
+//    public List<Coach> getCoaches(){
+//        return ;
+//    }
+
+//cra
+
 //    @PostMapping("/assignStudent")
 //    public List<Student> assignStudent(int id){
 //    cpt.getstud
 //        return students.add(student);
 //
 //    }
+
 }
