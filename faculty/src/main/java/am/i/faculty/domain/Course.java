@@ -3,18 +3,29 @@ package am.i.faculty.domain;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+@Entity
 public class Course {
-	private String title;
+	@Id
+	@GeneratedValue
+	private int id;
 	private String building;
-	private String room;
-	private Faculty professor;
-	private List<Student> students;
-	private Date start;
 	private Date end;
-	private Student TA;
+	private String room;
+	private Date start;
+	private String title;
+	@ManyToOne
+	private Faculty professor;
+	private int taId;
+	@OneToMany(mappedBy="course")
 	private List<Attendance> attendances;
 	
-	public Course() {}
+	public Course() { }
 	
 	public String getTitle() {
 		return title;
@@ -34,18 +45,6 @@ public class Course {
 	public void setRoom(String room) {
 		this.room = room;
 	}
-	public Faculty getProfessor() {
-		return professor;
-	}
-	public void setProfessor(Faculty professor) {
-		this.professor = professor;
-	}
-	public List<Student> getStudents() {
-		return students;
-	}
-	public void setStudents(List<Student> students) {
-		this.students = students;
-	}
 	public Date getStart() {
 		return start;
 	}
@@ -58,16 +57,20 @@ public class Course {
 	public void setEnd(Date end) {
 		this.end = end;
 	}
-	public Student getTA() {
-		return TA;
+	public int getTA() {
+		return taId;
 	}
-	public void setTA(Student tA) {
-		TA = tA;
+	public void setTA(int tA) {
+		taId = tA;
 	}
 	public void addAttendance(Attendance a) {
 		this.attendances.add(a);
 	}
-	
-	
-	
+	public Faculty getProfessor() {
+		return professor;
+	}
+
+	public void setProfessor(Faculty f) {
+		this.professor = f;
+	}
 }
