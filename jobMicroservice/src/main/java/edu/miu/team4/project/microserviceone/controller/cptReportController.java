@@ -29,10 +29,7 @@ public class cptReportController {
     public CptReport saveCptReport(@RequestBody CptReport cptReport){
         return cptReportService.saveCptReport(cptReport);
     }
-    @GetMapping("/students")
-    public List<Student> getStudents(){
-        return cptReportService.getStudents();
-    }
+
     @GetMapping("/students/{id}")
     public Student getStudentById(@PathVariable int id) {
         return cptReportService.getStudentById(id);
