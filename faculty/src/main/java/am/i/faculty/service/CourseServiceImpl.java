@@ -39,4 +39,14 @@ public class CourseServiceImpl implements CourseService {
 		l.add(new Course());
 		return res; //courseRepository.findByStudentId(student_id);
 	}
+	
+	public List<Course> getAllCourse(){
+		return courseRepository.findAll();
+	}
+
+	@Override
+	public Course createCourse(Course c) {
+		courseRepository.save(c);
+		return c;
+	}
 }
