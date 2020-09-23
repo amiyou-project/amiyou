@@ -73,4 +73,12 @@ public class Course {
 	public void setProfessor(Faculty f) {
 		this.professor = f;
 	}
+
+	@Override
+	public String toString() {
+		return "Course [id=" + id + ", building=" + building + ", end=" + end + ", room=" + room + ", start=" + start
+				+ ", title=" + title + ", professor=" + professor + ", taId=" + taId + ", attendances=" + attendances
+				+ "]";
+	}
+	
 }

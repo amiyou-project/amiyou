@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import am.i.faculty.domain.Course;
+import am.i.faculty.domain.StudentCourses;
 import am.i.faculty.repository.CourseRepository;
 import am.i.faculty.repository.StudentCoursesRepository;
 
@@ -38,5 +39,25 @@ public class CourseServiceImpl implements CourseService {
 		List<Course> l = new ArrayList<Course>();
 		l.add(new Course());
 		return res; //courseRepository.findByStudentId(student_id);
+	}
+	
+	public List<Course> getAllCourse(){
+		return courseRepository.findAll();
+	}
+
+	@Override
+	public Course createCourse(Course c) {
+		courseRepository.save(c);
+		return c;
+	}
+
+	@Override
+	public boolean registerStudent(int course_id, int student_id) {
+		StudentCourses sc = new StudentCourses();
+		if(courseRepository.findById(course_id).isPresent()) {
+			sc.setCourse(courseRepository.findById(course_id).get());
+			studentCoursesRepository.save(sc);
+			return true;
+		}else return false;
 	}
 }

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layouts/layout}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.ultraq.net.nz/thymeleaf/layout ">
+<head>
+    <meta charset="UTF-8">
+    <title>Students list</title>
+</head>
+<body>
+<div id="main-content" layout:fragment="main-content">
+    <div class="container">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">studentId</th>
+                <th scope="col">enrollDate</th>
+                <th scope="col">gradDate</th>
+                <th scope="col">gpa</th>
+                <th scope="col">coachId</th>
+
+            </tr>
+            </thead>
+<!--            <tbody>-->
+<!--            <tr th:each="stud, iterStat : ${allStudents}">-->
+<!--                <td scope="row" th:text="${iterStat.count}"></td>-->
+<!--                <td th:text="${stud.name}"></td>-->
+<!--                <td th:text="${stud.studentId}"></td>-->
+<!--                <td th:text="${stud.enrollDate}"></td>-->
+<!--                <td th:text="${stud.gradDate}"></td>-->
+<!--                <td th:text="${stud.gpa}"></td>-->
+<!--                <td th:text="${stud.coachId}"></td>-->
+<!--&lt;!&ndash;                <td><a th:href="@{/buyer/address/shipping/editShipping/{id}(id=${shippA.id})}">Update</a></td>&ndash;&gt;-->
+<!--&lt;!&ndash;                <td><a th:href="@{/buyer/address/shipping/deleteShipping/{id}(id=${shippA.id})}">Delete</a></td>&ndash;&gt;-->
+<!--            </tr>-->
+<!--            </tbody>-->
+
+        </table>
+    </div>
+
+
+</div>
+</body>
+</html>

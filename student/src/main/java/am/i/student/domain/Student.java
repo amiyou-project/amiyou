@@ -7,11 +7,14 @@ import javax.persistence.Entity;
 
 @Entity
 public class Student extends Person {
-	
+
+
 	private int studentId;
 	private Date enrollDate;
 	private Date gradDate;
 	private float gpa;
+	private long coachId;
+	//List<Student> findByCoachId(Long id)
 	
 	public Student() {}
 	public Student(String name,Address add,int studentId, Date enrollDate) {
