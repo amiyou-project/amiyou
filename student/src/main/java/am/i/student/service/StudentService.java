@@ -61,16 +61,15 @@ public class StudentService implements IStudentService {
 		// TODO Auto-generated method stub
 		return studentDao.save(stud);
 	}
+	
+	@Override
+	public List<CourseDTO> getAllCourses() {		
+		return restTemplate.getForObject(myEurekaLookup(facultyService) + "/courses", List.class);
+	}
 
 	@Override
-	public List<CourseDTO> getAllCoursesOfAStudent(int id) {
-		// TODO Auto-generated method stub
-		// EUREKA CODE
-		//Course c = restTemplate.getForObject(myEurekaLookup(facultyService) + "/courses/student/"+id+"", Course.class);
-		//System.out.println("Course: " + c.getTitle());
-		// EUREKA CODE
-		
-		return restTemplate.getForObject("http://localhost:8086/courses/student/"+id+"", List.class);
+	public List<CourseDTO> getAllCoursesOfAStudent(int id) {		
+		return restTemplate.getForObject(myEurekaLookup(facultyService) + "/courses/student/"+id+"", List.class);
 	}
 
 	@Override

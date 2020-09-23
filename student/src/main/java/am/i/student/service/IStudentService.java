@@ -24,4 +24,6 @@ public List<Student> getAllStudent();
 
 	public Course updateStudentRegistration(int id, String title, String method);
 
+	List<CourseDTO> getAllCourses();
+
 }
