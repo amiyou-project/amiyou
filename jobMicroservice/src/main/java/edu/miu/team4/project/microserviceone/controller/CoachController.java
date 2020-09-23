@@ -1,7 +1,6 @@
 package edu.miu.team4.project.microserviceone.controller;
 
-
-import am.i.databaseBuilder.Student;
+import edu.miu.team4.project.microserviceone.DTO.Student;
 import edu.miu.team4.project.microserviceone.domain.CptReport;
 import edu.miu.team4.project.microserviceone.domain.Job;
 import edu.miu.team4.project.microserviceone.domain.JobSearchReport;
@@ -25,6 +24,7 @@ public class CoachController {
 
     @Autowired
     public JobSearchReportService jobSearchReportService;
+
     @GetMapping
     public String hello(){
         return "hello here";
@@ -37,7 +37,6 @@ public class CoachController {
     }
     @GetMapping("/students")
     public List<Student> getStudents(){
-
         return cptReportService.getStudents();
     }
     @GetMapping(value = {"/studentsList"})
