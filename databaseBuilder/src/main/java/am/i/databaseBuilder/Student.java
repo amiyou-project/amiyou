@@ -15,7 +15,7 @@ public class Student extends Person {
 	private Date enrollDate;
 	private Date gradDate;
 	private float gpa;
-	@ManyToOne
+	@ManyToOne(optional = true)
 	private Coach coach;
 	@ManyToMany
 	@JoinTable

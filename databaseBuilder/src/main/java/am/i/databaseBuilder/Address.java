@@ -6,6 +6,7 @@ import javax.persistence.Id;
 
 @Entity
 public class Address {
+	
 	@Id
 	@GeneratedValue
 	private int id;
@@ -63,6 +64,11 @@ public class Address {
 
 	public void setCountry(String country) {
 		this.country = country;
+	}
+
+	public int getId() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 	
