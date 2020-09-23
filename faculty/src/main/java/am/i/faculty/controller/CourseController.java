@@ -3,6 +3,7 @@ package am.i.faculty.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,6 +34,10 @@ public class CourseController {
 	@GetMapping("/{id}")
 	public Course getCourse(@PathVariable int id) {
 		return courseService.getCourseById(id);
+	}
+	@DeleteMapping("/{id}")
+	public boolean deleteCourse(@PathVariable int id) {
+		return courseService.deleteCourse(id);
 	}
 	
 	@GetMapping("/student/{student_id}")
