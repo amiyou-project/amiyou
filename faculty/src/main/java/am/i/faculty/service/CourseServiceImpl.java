@@ -43,4 +43,10 @@ public class CourseServiceImpl implements CourseService {
 	public List<Course> getAllCourse(){
 		return courseRepository.findAll();
 	}
+
+	@Override
+	public Course createCourse(Course c) {
+		courseRepository.save(c);
+		return c;
+	}
 }
