@@ -60,4 +60,10 @@ public class CourseServiceImpl implements CourseService {
 			return true;
 		}else return false;
 	}
+
+	@Override
+	public boolean deleteCourse(int id) {
+		courseRepository.deleteById(id);
+		return true;
+	}
 }
