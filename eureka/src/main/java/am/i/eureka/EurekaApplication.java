@@ -10,7 +10,11 @@ public class EurekaApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(EurekaApplication.class, args);
+<<<<<<< Updated upstream
 		System.out.println("eureka test");
+=======
+		System.out.println("");
+>>>>>>> Stashed changes
 	}
 
 }
