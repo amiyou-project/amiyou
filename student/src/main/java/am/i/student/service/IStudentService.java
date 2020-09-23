@@ -18,8 +18,8 @@ public List<Student> getAllStudent();
 
 	public Student updateStudentInfo(Student stud);
 
-	public List<Course> getAllCoursesOfAStudent(int id);
+	public List<am.i.databaseBuilder.Course> getAllCoursesOfAStudent(int id);
 
-	public Course updateStudentRegistration(int id, String title, String method);
+	public am.i.databaseBuilder.Course updateStudentRegistration(int id, String title, String method);
 
 }

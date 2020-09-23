@@ -4,6 +4,9 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 
+import am.i.databaseBuilder.Address;
+import am.i.databaseBuilder.Person;
+
 
 @Entity
 public class Student extends Person {

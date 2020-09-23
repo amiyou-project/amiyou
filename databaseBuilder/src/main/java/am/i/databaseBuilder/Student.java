@@ -17,7 +17,7 @@ public class Student extends Person {
 	private float gpa;
 	@ManyToOne
 	private Coach coach;
-	@ManyToMany
+	@ManyToMany(mappedBy = "students")
 	@JoinTable
 	private List<Course> courses;
 	

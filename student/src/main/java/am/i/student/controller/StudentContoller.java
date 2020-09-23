@@ -2,7 +2,9 @@ package am.i.student.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,17 +13,27 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import am.i.faculty.domain.Course;
-import am.i.student.domain.Address;
-import am.i.student.domain.Person;
+
 import am.i.student.domain.Student;
 import am.i.student.service.IStudentService;
+import dtos.CourseDTO;
+import am.i.databaseBuilder.Address;
+import am.i.databaseBuilder.Course;
 
 @RestController
 public class StudentContoller {
 
 	@Autowired
 	private IStudentService studentService;
+	
+	@Autowired
+	private ModelMapper modelMapper;
+	
+	
+	private CourseDTO convertToCourseDTO(Course course) {
+		   CourseDTO courseDto = modelMapper.map(course, CourseDTO.class);
+		   return courseDto;
+	}
 	
 	@GetMapping()
 	public void homeinit1() {
@@ -44,8 +56,8 @@ public class StudentContoller {
 	}
 	
 	@GetMapping("/students/{id}/courses")
-	public List<Course> fetchStudentCourses(@PathVariable int id) {
-		return studentService.getAllCoursesOfAStudent(id);
+	public List<CourseDTO> fetchStudentCourses(@PathVariable int id) {
+		return studentService.getAllCoursesOfAStudent(id).stream().map((obj)-> convertToCourseDTO(obj)).collect(Collectors.toList());
 	}
 	
 	
@@ -59,6 +71,7 @@ public class StudentContoller {
 	public Student fetchBYName(@RequestParam String name) {
 		return studentService.getStudentByName(name);
 	}
+	
 	
 	@GetMapping("/teststudents")
 	public List<Student> getStudent() {
@@ -76,11 +89,9 @@ public class StudentContoller {
 	
 	
 	@GetMapping("/students/{id}/update_course")
-	public Course updateStudentcourse(@PathVariable int id,@RequestParam String method,@RequestParam String title) {
-		return studentService.updateStudentRegistration(id,title,method);
+	public CourseDTO updateStudentcourse(@PathVariable int id,@RequestParam String method,@RequestParam String title) {
+		return convertToCourseDTO(studentService.updateStudentRegistration(id,title,method));
 	}
-	
-	
 	
 	
 }
