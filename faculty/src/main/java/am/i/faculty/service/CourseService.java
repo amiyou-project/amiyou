@@ -9,4 +9,5 @@ public interface CourseService {
 	public List<Course> getCourseByStudentId(int student_id);
 	public List<Course> getAllCourse();
 	public Course createCourse(Course c);
+	public boolean registerStudent(int course_id, int student_id);
 }
