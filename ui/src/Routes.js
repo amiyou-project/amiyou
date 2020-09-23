@@ -13,3 +13,6 @@ let routes = (
     </Route>
   </div>
 );
+
+
+export default routes
