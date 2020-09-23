@@ -2,7 +2,9 @@ package am.i.student.service;
 
 import java.util.List;
 
+import am.i.faculty.domain.Course;
 import am.i.student.domain.Student;
+import dtos.CourseDTO;
 
 
 
@@ -18,8 +20,8 @@ public List<Student> getAllStudent();
 
 	public Student updateStudentInfo(Student stud);
 
-	public List<am.i.databaseBuilder.Course> getAllCoursesOfAStudent(int id);
+	public List<CourseDTO> getAllCoursesOfAStudent(int id);
 
-	public am.i.databaseBuilder.Course updateStudentRegistration(int id, String title, String method);
+	public Course updateStudentRegistration(int id, String title, String method);
 
 }

@@ -11,9 +11,10 @@ import org.springframework.web.client.RestTemplate;
 import com.netflix.appinfo.InstanceInfo;
 import com.netflix.discovery.EurekaClient;
 
-import am.i.databaseBuilder.Course;
+import am.i.faculty.domain.Course;
 import am.i.student.domain.Student;
 import am.i.student.repository.StudentDAO;
+import dtos.CourseDTO;
 
 @Service
 @Transactional
@@ -62,7 +63,7 @@ public class StudentService implements IStudentService {
 	}
 
 	@Override
-	public List<Course> getAllCoursesOfAStudent(int id) {
+	public List<CourseDTO> getAllCoursesOfAStudent(int id) {
 		// TODO Auto-generated method stub
 		// EUREKA CODE
 		//Course c = restTemplate.getForObject(myEurekaLookup(facultyService) + "/courses/student/"+id+"", Course.class);
@@ -75,7 +76,7 @@ public class StudentService implements IStudentService {
 	@Override
 	public Course updateStudentRegistration(int id, String title, String method) {
 		// TODO Auto-generated method stub
-		return restTemplate.getForObject("http://localhost:8081/courses/student/"+id+"", Course.class);
+		return restTemplate.getForObject("http://localhost:8086/courses/student/"+id+"", Course.class);
 	}
 
 	@Override

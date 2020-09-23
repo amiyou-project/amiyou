@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -18,6 +19,7 @@ public  abstract class Person {
 	private String name;
 	
 	@OneToOne(targetEntity = Address.class)
+	@JoinColumn(name="address_id")
 	private Address address;
 	
 	public Person() { }

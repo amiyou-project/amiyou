@@ -28,11 +28,11 @@ public class Student /* extends Person */ {
 	private Date gradDate;
 	private float gpa;
 	private Integer coachId;
-	
+
 	public Student() {
 	}
-	
-	
+
+
 
 	/*
 	 * public Student(String name, Address add, int studentId, Date enrollDate) {
@@ -42,7 +42,7 @@ public class Student /* extends Person */ {
 
 	public Student(String string, int addId, int studId, Date date) {
 		// TODO Auto-generated constructor stub
-		
+
 		this.name  = string;
 		this.addressId = addId;
 		this.studentId = studId;

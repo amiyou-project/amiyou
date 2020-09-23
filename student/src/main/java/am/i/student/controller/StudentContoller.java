@@ -14,12 +14,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import am.i.student.domain.Student;
 import am.i.student.service.IStudentService;
 import dtos.CourseDTO;
 import am.i.databaseBuilder.Address;
-import am.i.databaseBuilder.Course;
+import am.i.faculty.domain.Course;
 
 @RestController
 public class StudentContoller {
@@ -65,8 +67,8 @@ public class StudentContoller {
 	
 	@GetMapping("/students/{id}/courses")
 	public List<CourseDTO> fetchStudentCourses(@PathVariable int id) {
-		
-		return studentService.getAllCoursesOfAStudent(id).stream().map((obj)-> convertToCourseDTO(obj)).collect(Collectors.toList());
+		List<CourseDTO> courss = studentService.getAllCoursesOfAStudent(id);
+		return  courss;
 	}
 	
 	

@@ -36,8 +36,8 @@ public class StudentCourses {
 		return course;
 	}
 
-	public void setCourse(Course coursesId) {
-		this.course = coursesId;
+	public void setCourse(Course course) {
+		this.course = course;
 	}
 	
 	
