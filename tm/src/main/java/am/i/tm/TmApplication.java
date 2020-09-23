@@ -8,8 +8,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
-//@EnableDiscoveryClient
-//@EnableCircuitBreaker
+@EnableDiscoveryClient
+@EnableCircuitBreaker
 public class TmApplication {
 
 	public static void main(String[] args) {
@@ -17,8 +17,9 @@ public class TmApplication {
 		System.out.println("Hello ...");
 	}
 
-	/*
-	 * @Bean public RestTemplate restTemplate() { return new RestTemplate(); }
-	 */
+	@Bean
+	public RestTemplate restTemplate() {
+		return new RestTemplate();
+	}
 
 }
