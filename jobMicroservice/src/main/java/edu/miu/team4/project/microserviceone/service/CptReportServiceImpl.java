@@ -1,6 +1,7 @@
 package edu.miu.team4.project.microserviceone.service;
 
-import am.i.student.domain.Student;
+
+import am.i.databaseBuilder.Student;
 import com.netflix.appinfo.InstanceInfo;
 import com.netflix.discovery.EurekaClient;
 import edu.miu.team4.project.microserviceone.domain.CptReport;
@@ -24,9 +25,9 @@ public class CptReportServiceImpl implements CptReportService{
     @Autowired
     private RestTemplate restTemplate;
 
-//    @Autowired
-//    private EurekaClient eurekaClient;
-    @Value("${}")
+    @Autowired
+    private EurekaClient eurekaClient;
+    @Value("${http://localhost:8085/students/\"+id+\"}")
     private String studentServiceName;
     @Override
     public CptReport saveCptReport(CptReport cptReport) {

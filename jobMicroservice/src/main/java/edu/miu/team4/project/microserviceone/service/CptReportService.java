@@ -1,6 +1,6 @@
 package edu.miu.team4.project.microserviceone.service;
 
-import am.i.student.domain.Student;
+import am.i.databaseBuilder.Student;
 import edu.miu.team4.project.microserviceone.domain.CptReport;
 
 import java.util.List;

@@ -1,6 +1,6 @@
 package edu.miu.team4.project.microserviceone.controller;
 
-import am.i.student.domain.Student;
+import am.i.databaseBuilder.Student;
 import edu.miu.team4.project.microserviceone.domain.CptReport;
 import edu.miu.team4.project.microserviceone.service.CptReportService;
 import org.springframework.beans.factory.annotation.Autowired;
