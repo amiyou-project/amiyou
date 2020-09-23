@@ -2,7 +2,7 @@ server:
   port: 8085
 spring:
   application:
-    name: test
+    name: faculty
   datasource:
     url: jdbc:mysql://localhost/amiyou?&serverTimezone=UTC
     username: ea

@@ -1,3 +1,4 @@
+faculty: faculty
 server:
   port: 8086
 spring:

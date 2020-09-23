@@ -19,9 +19,6 @@ public class Faculty{
 	private String roomOffice;
 	private String departement;
 	
-	@OneToMany(mappedBy="professor")
-	private List<Course> courses;
-	
 	public Faculty() {}
 
 	public int getId() {
@@ -78,14 +75,6 @@ public class Faculty{
 
 	public void setDepartement(String departement) {
 		this.departement = departement;
-	}
-
-	public List<Course> getCourses() {
-		return courses;
-	}
-
-	public void setCourses(List<Course> courses) {
-		this.courses = courses;
 	}
 	
 	
