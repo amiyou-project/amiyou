@@ -6,7 +6,6 @@
  * import org.springframework.beans.factory.annotation.Autowired; import
  * org.springframework.beans.factory.annotation.Value; import
  * org.springframework.stereotype.Service; import
- * org.springframework.transaction.annotation.Transactional; import
  * org.springframework.web.client.RestTemplate;
  * 
  * import com.netflix.appinfo.InstanceInfo; import
@@ -16,7 +15,7 @@
  * 
  * import am.i.tm.tmRepository.tmRepository; import am.i.tm.tmdomain.Student;
  * 
- * @Service //@Transactional public class tmServiceImpl implements tmService {
+ * @Service public class tmServiceImpl implements tmService {
  * 
  * @Autowired private RestTemplate restTemplate;
  * 
