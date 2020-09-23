@@ -1,6 +1,7 @@
 package edu.miu.team4.project.microserviceone.controller;
 
 import edu.miu.team4.project.microserviceone.DTO.Student;
+import edu.miu.team4.project.microserviceone.domain.Coach;
 import edu.miu.team4.project.microserviceone.domain.CptReport;
 import edu.miu.team4.project.microserviceone.domain.Job;
 import edu.miu.team4.project.microserviceone.domain.JobSearchReport;
@@ -50,6 +51,11 @@ public class CoachController {
         return jobSearchReportService.saveJobSearchReport(jobSearchReport);
 
     }
+//    @GetMapping("/all")
+//    public List<Coach> getCoaches(){
+//        return ;
+//    }
+
 
 //    @PostMapping("/assignStudent")
 //    public List<Student> assignStudent(int id){
