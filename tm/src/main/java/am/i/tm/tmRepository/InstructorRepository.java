@@ -7,5 +7,5 @@ import am.i.tm.tmdomain.TMInstructor;
 
 @Repository
 public interface InstructorRepository extends JpaRepository<TMInstructor, Integer>{
-
+	public TMInstructor findBylname(String name);
 }
