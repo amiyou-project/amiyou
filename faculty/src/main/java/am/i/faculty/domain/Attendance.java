@@ -13,11 +13,13 @@ public class Attendance {
 	@GeneratedValue
 	private Integer id;
 	private Date courseDate;
-	private boolean isAttended;
+	
 	private String description;
-	private int student_id;
+	private boolean isAttended;
+	
 	@ManyToOne
 	private Course course;
+	private int studentId;
 	
 	public Attendance() {
 		super();	
@@ -28,7 +30,7 @@ public class Attendance {
 		this.courseDate = courseDate;
 		this.isAttended = isAttended;
 		this.description = description;
-		this.student_id = student_id;
+		this.studentId = student_id;
 		this.course = course;
 	}
 
@@ -36,10 +38,10 @@ public class Attendance {
 		return courseDate;
 	}
 	public int getStudent() {
-		return student_id;
+		return studentId;
 	}
 	public void setStudent(int student) {
-		this.student_id = student;
+		this.studentId = student;
 	}
 	public Course getCourse() {
 		return course;

@@ -4,7 +4,7 @@ spring:
   application:
     name: test
   datasource:
-    url: jdbc:mysql://localhost/sakila?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    url: jdbc:mysql://localhost/amiyou?&serverTimezone=UTC
     username: ea
     password: cs544
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -12,5 +12,4 @@ spring:
     show-sql: true
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     hibernate:
-      ddl-auto: update    
-    
+      ddl-auto: update
