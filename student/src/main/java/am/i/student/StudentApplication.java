@@ -13,7 +13,7 @@ public class StudentApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(StudentApplication.class, args);
-		System.out.println("Done!");
+		System.out.println("Running 8087!");
 	}
 
 	@Bean

@@ -32,6 +32,7 @@ public class StudentService implements IStudentService {
 	
 	@Autowired
 	private RestTemplate restTemplate;
+	
 	private String myEurekaLookup(String serviceName) {
 		InstanceInfo instanceInfo = eurekaClient.getNextServerFromEureka(serviceName, false);
 		return instanceInfo.getHomePageUrl();
@@ -43,18 +44,6 @@ public class StudentService implements IStudentService {
 		return studentDao.findAll();
 	}
 
-	@Override
-	public Student getStudentById(int id) {
-		// TODO Auto-generated method stub
-		return studentDao.findByStudentId(id);
-		//return null;
-	}
-
-	@Override
-	public Student getStudentByName(String name) {
-		// TODO Auto-generated method stub
-		return studentDao.findByName(name);
-	}
 
 	public StudentDAO getStudentDao() {
 		return studentDao;
@@ -64,11 +53,7 @@ public class StudentService implements IStudentService {
 		this.studentDao = studentDao;
 	}
 
-	@Override
-	public void addStudents(List<Student> stud) {
-		// TODO Auto-generated method stub
-		studentDao.saveAll(stud);
-	}
+	
 
 	@Override
 	public Student updateStudentInfo(Student stud) {
@@ -80,11 +65,11 @@ public class StudentService implements IStudentService {
 	public List<Course> getAllCoursesOfAStudent(int id) {
 		// TODO Auto-generated method stub
 		// EUREKA CODE
-		Course c = restTemplate.getForObject(myEurekaLookup(facultyService) + "/courses/student/"+id+"", Course.class);
-		System.out.println("Course: " + c.getTitle());
+		//Course c = restTemplate.getForObject(myEurekaLookup(facultyService) + "/courses/student/"+id+"", Course.class);
+		//System.out.println("Course: " + c.getTitle());
 		// EUREKA CODE
 		
-		return restTemplate.getForObject("http://localhost:8081/courses/student/"+id+"", List.class);
+		return restTemplate.getForObject("http://localhost:8086/courses/student/"+id+"", List.class);
 	}
 
 	@Override
@@ -92,6 +77,27 @@ public class StudentService implements IStudentService {
 		// TODO Auto-generated method stub
 		return restTemplate.getForObject("http://localhost:8081/courses/student/"+id+"", Course.class);
 	}
+
+	@Override
+	public Student getStudentById(int id) {
+		// TODO Auto-generated method stub
+		return studentDao.findByStudentId(id);
+	}
+
+	@Override
+	public Student getStudentByName(String name) {
+		// TODO Auto-generated method stub
+		return studentDao.findByName(name); 
+		
+	}
+
+	@Override
+	public void addStudents(List<Student> stud) {
+		// TODO Auto-generated method stub
+		studentDao.saveAll(stud);
+		
+	}
+
 
 
 

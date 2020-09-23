@@ -9,6 +9,7 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Attendance {
+	
 	@Id
 	@GeneratedValue
 	private Integer id;

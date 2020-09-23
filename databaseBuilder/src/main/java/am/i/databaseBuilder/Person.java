@@ -16,7 +16,8 @@ public  abstract class Person {
 	private int id;
 	
 	private String name;
-	@OneToOne
+	
+	@OneToOne(targetEntity = Address.class)
 	private Address address;
 	
 	public Person() { }

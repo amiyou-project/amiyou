@@ -1,6 +1,7 @@
 package am.i.student.controller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -35,13 +36,20 @@ public class StudentContoller {
 		   return courseDto;
 	}
 	
-	@GetMapping()
+	@GetMapping("/testinit")
 	public void homeinit1() {
 		List<Student> studs = new ArrayList<>();
-		studs.add(new Student("Gkane",new Address("streetA","cityA","stateA",4365,"countrA"),111140,new java.util.Date()));
-		studs.add(new Student("Bkane",new Address("streetB","cityB","stateB",4365,"countrB"),111141,new java.util.Date()));
-		studs.add(new Student("Ckane",new Address("streetC","cityC","stateC",4365,"countrC"),111142,new java.util.Date()));
 		
+		
+		  Student stud1 = new Student("Gkane",1,111140,new java.util.Date());
+				  stud1.setCoachId(null);
+		  Student stud2 = new Student("Bkane",2,111141,new java.util.Date());
+		  stud2.setCoachId(null); 
+		  Student stud3 = new Student("Ckane",3,111142,new java.util.Date());
+		  stud3.setCoachId(null);
+		  
+		  studs.addAll(Arrays.asList(stud1,stud2,stud3));
+		 
 		studentService.addStudents(studs);
 	}
 	
@@ -57,6 +65,7 @@ public class StudentContoller {
 	
 	@GetMapping("/students/{id}/courses")
 	public List<CourseDTO> fetchStudentCourses(@PathVariable int id) {
+		
 		return studentService.getAllCoursesOfAStudent(id).stream().map((obj)-> convertToCourseDTO(obj)).collect(Collectors.toList());
 	}
 	
@@ -76,10 +85,15 @@ public class StudentContoller {
 	@GetMapping("/teststudents")
 	public List<Student> getStudent() {
 		List<Student> studs = new ArrayList<>();
-		studs.add(new Student("Gkane",new Address("streetA","cityA","stateA",4365,"countrA"),111140,new java.util.Date()));
-		studs.add(new Student("Bkane",new Address("streetB","cityB","stateB",4365,"countrB"),111141,new java.util.Date()));
-		studs.add(new Student("Ckane",new Address("streetC","cityC","stateC",4365,"countrC"),111142,new java.util.Date()));
-		return studs;
+		/*
+		 * studs.add(new Student("Gkane",new
+		 * Address("streetA","cityA","stateA",4365,"countrA"),111140,new
+		 * java.util.Date())); studs.add(new Student("Bkane",new
+		 * Address("streetB","cityB","stateB",4365,"countrB"),111141,new
+		 * java.util.Date())); studs.add(new Student("Ckane",new
+		 * Address("streetC","cityC","stateC",4365,"countrC"),111142,new
+		 * java.util.Date()));
+		 */return studs;
 	}
 	
 	@PostMapping("/students")

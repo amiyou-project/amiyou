@@ -2,8 +2,8 @@ package am.i.student.service;
 
 import java.util.List;
 
-import am.i.faculty.domain.Course;
 import am.i.student.domain.Student;
+
 
 
 public interface IStudentService {
