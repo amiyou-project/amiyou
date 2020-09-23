@@ -5,13 +5,8 @@ spring:
   application:
     name: student
   datasource:
-<<<<<<< Updated upstream
     url: jdbc:mysql://localhost/teststudent?serverTimezone=GMT-6
     username: ea
-=======
-    url: jdbc:mysql://localhost/final-project
-    username: test
->>>>>>> Stashed changes
     password: cs544
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
