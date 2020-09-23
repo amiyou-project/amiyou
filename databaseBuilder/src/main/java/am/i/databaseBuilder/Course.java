@@ -21,7 +21,6 @@ public class Course {
 	private String room;
 	@ManyToOne
 	private Faculty professor;
-	@ManyToMany
 	private List<Student> students;
 	private Date start;
 	private Date end;

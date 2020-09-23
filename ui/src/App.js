@@ -5,13 +5,16 @@ import Login from './Login'
 
 function App (props){
   const [logged, setLogged] = useState(false);
+  const [student, setStudent] = useState([]);
+
+  //
 
   const page = () => {
-      if(!logged) return <Login setLogged={setLogged}/>;
+      if(!logged) return <Login setLogged={setLogged} setStudent={setStudent}/>;
       else return (
         <div>
           <h1>AMIYOU</h1>
-          <img src={logo} className="App-logo" alt="logo" />
+          <ul>{student.map(v => (<li>{v.title}</li>))}</ul>
         </div>
       );
   }

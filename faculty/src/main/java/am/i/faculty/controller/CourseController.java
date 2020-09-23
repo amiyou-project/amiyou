@@ -47,7 +47,6 @@ public class CourseController {
 	
 	@GetMapping("/courses/{course_id}/register/{student_id}")
 	public boolean registerStudent(@PathVariable int course_id, @PathVariable int student_id) {
-		
 		return courseService.registerStudent(course_id, student_id);
 	}
 }
