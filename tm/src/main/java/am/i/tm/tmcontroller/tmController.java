@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import am.i.tm.tmdomain.TMAppointment;
 import am.i.tm.tmdomain.TMAttendance;
 import am.i.tm.tmdomain.TMInstructor;
-
+import am.i.tm.tmservice.AppointmentService;
+import am.i.tm.tmservice.TMAttendanceService;
 import am.i.tm.tmservice.tmService;
 
 @RestController
@@ -23,11 +24,13 @@ public class tmController {
 	@Autowired
 	private tmService tmservice;
 
-	@PostMapping("/addappointment")
-	public TMAppointment saveAppointment(@RequestBody TMAppointment appointment) {
-		tmservice.saveOrUpdateAppointment(appointment);
-		return appointment;
-	}
+	@Autowired
+	TMAttendanceService tmattendanceService;
+	
+	@Autowired
+	AppointmentService appointmentService;
+
+//=========================Add attendance=======================================
 
 	@PostMapping("/addattendance")
 	public TMAttendance saveAttendance(@RequestBody TMAttendance attendance) {
@@ -35,31 +38,50 @@ public class tmController {
 		return attendance;
 	}
 
+//=========================Add appointment=======================================
+
+	@PostMapping("/addappointment")
+	public TMAppointment saveAppointment(@RequestBody TMAppointment appointment) {
+		tmservice.saveOrUpdateAppointment(appointment);
+		return appointment;
+	}
+
+//=========================Add instructor=======================================
+
 	@PostMapping("/addinstructor")
 	public TMInstructor saveInstructor(@RequestBody TMInstructor instructor) {
 		tmservice.saveOrUpdateInstructor(instructor);
 		return instructor;
 	}
 
-	@PatchMapping("/assignstudent") 
-	public TMInstructor assignStudent(@RequestParam int inst_id, @RequestParam int stud_id)	{ 
-	
-		return	tmservice.saveOrUpdateAssignment(inst_id,stud_id);
-		//return instructor; 
-		}
-//=========================By Id=================================================================
-	
+//=========================Assign a student=======================================
+
+	@PatchMapping("/assignstudent")
+	public TMInstructor assignStudent(@RequestParam int inst_id, @RequestParam int stud_id) {
+		return tmservice.saveOrUpdateAssignment(inst_id, stud_id);
+		
+	}
+
+// =========================show attendance=======================================
+
+	// @RequestMapping("")
+	@GetMapping("/attendances/{id}")
+	public TMAttendance getAttendance(@PathVariable int id) {
+		return tmattendanceService.getAttendanceById(id);
+	}
+
+//=========================show Instructor====================================
+
 //get instructor by Id
-	@GetMapping("/instructor/{id}")  
+	@GetMapping("/instructor/{id}")
 	public TMInstructor getInstructor(@PathVariable int id) {
 		return tmservice.getInstructorById(id);
 	}
 	
-	/*
-	 * //get instructor by name
-	 * 
-	 * @GetMapping("/instructor/{lname}") public TMInstructor
-	 * getByName(@RequestParam String lname) { return
-	 * tmservice.getInstructorByName(lname); }
-	 */
+//=========================show appointments====================================
+	@GetMapping("/appointments/{id}")
+	public TMAppointment getAppointment(@PathVariable int id) {
+		return appointmentService.getAppointmentById(id);
+	}
+
 }

@@ -55,10 +55,13 @@ public class tmServiceImpl implements tmService {
 		}
 		return null;
 	}
-
-	/*
-	 * @Override public TMInstructor getInstructorByName(String lname) { return
-	 * instructorRepository.findByName(lname); //return null; }
-	 */
+	
+	  @Override
+	  public TMInstructor getInstructorByName(String lname) {
+		  return instructorRepository.findBylname(lname); 
+		  }
+	 
+	
+	
 	
 }
