@@ -2,9 +2,9 @@ server:
   port: 8085
 spring:
   application:
-    name: faculty
+    name: dbBuilder
   datasource:
-    url: jdbc:mysql://localhost/amiyou?&serverTimezone=UTC
+    url: jdbc:mysql://localhost/amiyou?serverTimezone=UTC
     username: ea
     password: cs544
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -13,3 +13,4 @@ spring:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     hibernate:
       ddl-auto: update
+      

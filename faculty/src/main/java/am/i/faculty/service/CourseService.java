@@ -1,7 +1,10 @@
 package am.i.faculty.service;
 
+import java.util.List;
+
 import am.i.faculty.domain.Course;
 
 public interface CourseService {
 	public Course getCourseById(int id);
+	public List<Course> getCourseByStudentId(int student_id);
 }
