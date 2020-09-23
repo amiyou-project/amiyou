@@ -1,13 +1,10 @@
 
 package am.i.tm.tmdomain;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+
 
 @Entity
 public class TMAppointment {
