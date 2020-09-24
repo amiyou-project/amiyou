@@ -1,5 +1,6 @@
 package am.i.student.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -72,10 +73,19 @@ public class StudentService implements IStudentService {
 	@Override
 	public List<CourseDTO> getAllTakenCourses(int id) {		
 		 List<CourseDTO> allC =  restTemplate.getForObject(myEurekaLookup(facultyService) + "/courses/student/"+id+"", List.class);
+		
+		 // List<CourseDTO> taken = new ArrayList<>();
 		 
-		 List<CourseDTO> taken = allC.stream().filter((obj)-> obj.getEnd().compareTo(new java.util.Date())==0).collect(Collectors.toList());
+			/*
+			 * for(CourseDTO crs : allC) { if(crs.getEnd().compareTo(new
+			 * java.util.Date())==0) { taken.add(crs); }
+			 * 
+			 * }
+			 */
 		 
-		 return taken;
+		   //allC.stream().filter((obj)-> obj.getEnd().compareTo(new java.util.Date())==0).collect(Collectors.toList());
+		 
+		 return allC.stream().filter((obj)-> obj.getEnd().compareTo(new java.util.Date())==0).collect(Collectors.toList());
 	}
 	
 	

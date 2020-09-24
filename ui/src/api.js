@@ -5,7 +5,7 @@ const url = "http://localhost"; // http://localhost:8085
 
 const api = {
   register: async (st_id, co_id) => {
-    const data = await fetch(`${url}/courses/${st_id}/register/${co_id}`);
+    const data = await fetch(`${url}/courses/${co_id}/register/${st_id}`);
     console.log(data);
     return true; //await data.json();
   },
@@ -16,11 +16,11 @@ const api = {
     return await data.json();
   },
   getStudent: async (id) => {
-    //const data =await fetch(`${url}/students/${id}`);
+    const data = await fetch(`${url}/students/${id}`);
     return student;
   },
   getAllStudents: async () => {
-    //const data =await fetch(`${url}/students`);
+    const data = await fetch(`${url}/students`);
     return students;
   },
   getAllCourses: async () => {
@@ -32,6 +32,7 @@ const api = {
     return await data.json(); // courses
   },
   //saveCptReport
+
   //saveJobSearchReport
 };
 

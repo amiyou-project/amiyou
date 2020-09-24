@@ -65,4 +65,9 @@ public class ServiceGatway implements IService{
 		return restTemplate.getForObject(myEurekaLookup(JobService) + "/cptReport/getCptReportByStudentid/"+id+"", List.class);
 	}
 
+	public List<Course> getCourseByStudentId(int student_id) {
+		// TODO Auto-generated method stub
+		return restTemplate.getForObject(myEurekaLookup(facultyService) + "/courses/student/"+student_id, List.class);
+	}
+
 }

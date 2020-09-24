@@ -13,4 +13,5 @@ public interface IService {
 	List<Student> getStudents();
 	List<TMInstructor> getTMInstrutor();
 	List<CPTReport> getCptReport(int id);
+	public List<Course> getCourseByStudentId(int student_id);
 }

@@ -27,10 +27,14 @@ function StudentDashboard(props) {
       <div>
         <h1>MY COURSES</h1>
         <ul>
-          {/*myCourses.map(mc => (
-                <li key={"mc"+mc.id} onClick={() => api.unregister(mc.id, student.id)}>
-                    {mc.title}
-            </li>))*/}
+          {/*myCourses.map((mc) => (
+            <li
+              key={"mc" + mc.id}
+              onClick={() => api.unregister(mc.id, student.id)}
+            >
+              {mc.title}
+            </li>
+          ))*/}
         </ul>
       </div>
     </div>
