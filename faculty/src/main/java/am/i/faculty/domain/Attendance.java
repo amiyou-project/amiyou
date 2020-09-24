@@ -26,9 +26,7 @@ public class Attendance {
 	private Course course;
 	private int studentId;
 	
-	public Attendance() {
-		super();	
-	}
+	
 
 	public Attendance(Date courseDate, int sessionAttended, String description, int student, Course course) {
 
