@@ -10,4 +10,5 @@ import am.i.faculty.domain.StudentCourses;
 @Repository
 public interface StudentCoursesRepository extends JpaRepository<StudentCourses, Integer>{
 	public List<StudentCourses> findByStudentId(int id);
+	public List<StudentCourses> findByCourseIdAndStudentId(int courseId, int studentId);
 }
