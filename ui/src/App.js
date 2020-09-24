@@ -1,17 +1,33 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import logo from './logo.svg';
+import Login from './Login'
+import StudentDashboard from './StudentDashboard'
 
-export class App extends Component {
+function App (props){
+  const [student, setStudent] = useState(null);
+  const [courses, setCourses] = useState([]);
+  const [myCourses, setMyCourses] = useState([]);
+  const [students, setStudents] = useState([]);
 
-  render() {
-      return (
-          <div>
-              <h1>AMIYOU</h1>
-              <img src={logo} className="App-logo" alt="logo" />
-          </div>
-      )
+  const page = () => {
+      if(!student) return <Login 
+        setStudent={setStudent} 
+        setStudents={setStudents} 
+        setCourses={setCourses}
+        setMyCourses={setMyCourses} />;
+      else return <StudentDashboard 
+        courses={courses} 
+        students={students} 
+        myCourses={myCourses}
+        student={student} />;
   }
+  return (
+      <div>
+          {page()}
+      </div>
+  )
 }
+
+
 
 export default App;

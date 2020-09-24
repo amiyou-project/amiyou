@@ -1,0 +1,44 @@
+[
+    {
+        "id": 0,
+        "name": "asdf",
+        "address": {
+            "city": "23123",
+            "state": "asdf",
+            "zip": 1234,
+            "street": "asdf",
+            "country": "daf"
+        },
+        "enrollDate": "2020-09-23T00:00:00.000+00:00",
+        "gradDate": "2020-09-23T00:00:00.000+00:00",
+        "gpa": 123
+    },
+    {
+        "id": 1,
+        "name": "asdf",
+        "address": {
+            "city": "23123",
+            "state": "asdf",
+            "zip": 1234,
+            "street": "asdf",
+            "country": "daf"
+        },
+        "enrollDate": "2020-09-22T00:00:00.000+00:00",
+        "gradDate": "2020-09-22T00:00:00.000+00:00",
+        "gpa": 123
+    },
+    {
+        "id": 2,
+        "name": "asdf",
+        "address": {
+            "city": "23123",
+            "state": "asdf",
+            "zip": 1234,
+            "street": "asdf",
+            "country": "daf"
+        },
+        "enrollDate": "2020-09-22T00:00:00.000+00:00",
+        "gradDate": "2020-09-22T00:00:00.000+00:00",
+        "gpa": 123
+    }
+]
