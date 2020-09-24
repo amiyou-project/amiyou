@@ -24,23 +24,23 @@ public class AttendanceController {
 	 public Attendance getAttendance(@PathVariable int id) {
 		 return attendanceService.getAttendanceById(id);
 	 }
-	 @GetMapping("/student/{student_id}/course/{course_id}")
-		public List<Attendance> getStudentCourses(@PathVariable int student_id, @PathVariable int course_id) {
-			return attendanceService.getAttendanceByCourseAndStudentId(student_id,course_id);
-		}
+//	 @GetMapping("/student/{student_id}/course/{course_id}")
+//		public List<Attendance> getStudentCourses(@PathVariable int student_id, @PathVariable int course_id) {
+//			return attendanceService.getAttendanceByCourseAndStudentId(student_id,course_id);
+//		}
 	 @GetMapping(value ={"/save"})
 	    public Attendance saveAttendance(Attendance attendance){
 		 
 	        return attendanceService.saveAttendance(attendance);
 	    }
-	   @DeleteMapping("delete/{id}")
-	    public boolean deleteAttendance(@PathVariable ("id") int id) {
-		   Attendance attendance = attendanceService.getAttendanceById(id);
-	       if(attendance == null) return false;
-	       attendanceService.deleteAttendance(id);
-	      
-	        return true;
-	    }
+//	   @DeleteMapping("delete/{id}")
+//	    public boolean deleteAttendance(@PathVariable ("id") int id) {
+//		   Attendance attendance = attendanceService.getAttendanceById(id);
+//	       if(attendance == null) return false;
+//	       attendanceService.deleteAttendance(id);
+//	      
+//	        return true;
+//	    }
 //	   @GetMapping("/student/{student_id}/course/{course_id}/count")
 //	    public int getcountAttendance(@PathVariable int student_id, @PathVariable int course_id){
 //	        return attendanceService.getcountAttendance(student_id,course_id);

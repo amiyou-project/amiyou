@@ -1,5 +1,7 @@
 package edu.miu.team4.project.microserviceone.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
@@ -17,6 +19,7 @@ public class Job {
     private Date startDate;
 
     @OneToMany(mappedBy = "job")
+    @JsonIgnore
     private List<CptReport> cptReports=new ArrayList();
 
     public Job() {
