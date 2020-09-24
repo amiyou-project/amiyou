@@ -12,4 +12,5 @@ public interface CoachService {
     Coach getCoachByStudentid(int id);
 
     List<Coach> getAllCoaches();
+
 }

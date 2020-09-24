@@ -15,7 +15,8 @@ public class CptReport {
     @ManyToOne
     @JoinColumn(name = "job_id")
     private Job job;
-    private int student_id;
+    @Column
+    private int studentnum;
 
 
     public CptReport() {
@@ -51,5 +52,13 @@ public class CptReport {
 
     public void setJob(Job job) {
         this.job = job;
+    }
+
+    public int getStudentnum() {
+        return studentnum;
+    }
+
+    public void setStudentnum(int studentnum) {
+        this.studentnum = studentnum;
     }
 }

@@ -79,4 +79,10 @@ public class CoachController {
     public Coach saveCoaches(Coach coach){
         return coachService.saveCoach(coach);
     }
+
+    @GetMapping("/getJobSearchReportByStudentid/{id}")
+    public JobSearchReport getJobSearchReportByStudentid(@PathVariable int id) {
+        return jobSearchReportService.getJobSearchReportByStudentid(id);
+    }
+
 }

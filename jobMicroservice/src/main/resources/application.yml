@@ -4,7 +4,7 @@ spring:
   application:
     name: first-microservice
   datasource:
-    url: jdbc:mysql://localhost/amiyou
+    url: jdbc:mysql://localhost/project
     username: ea
     password: cs544
     driver-class-name: com.mysql.cj.jdbc.Driver

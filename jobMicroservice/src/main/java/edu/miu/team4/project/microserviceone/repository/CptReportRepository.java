@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CptReportRepository  extends JpaRepository<CptReport, String> {
+    CptReport findByStudentnum(int id);
 }

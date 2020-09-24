@@ -2,6 +2,7 @@ package edu.miu.team4.project.microserviceone.service;
 
 import edu.miu.team4.project.microserviceone.domain.Coach;
 import edu.miu.team4.project.microserviceone.domain.Job;
+import edu.miu.team4.project.microserviceone.domain.JobSearchReport;
 import edu.miu.team4.project.microserviceone.repository.CoachRepository;
 import edu.miu.team4.project.microserviceone.repository.JobRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,6 @@ import java.util.List;
 public class CoachServiceImpl implements CoachService{
     @Autowired
     public CoachRepository coachRepository;
-
 
     @Override
     public Coach saveCoach(Coach coach) {
@@ -51,6 +51,8 @@ public class CoachServiceImpl implements CoachService{
     public List<Coach> getAllCoaches() {
         return coachRepository.findAll();
     }
+
+
 
 //    @Override
 //    public Coach getCoach(int id) {

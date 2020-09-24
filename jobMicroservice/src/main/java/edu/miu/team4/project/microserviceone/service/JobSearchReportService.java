@@ -9,4 +9,5 @@ import java.util.List;
 public interface JobSearchReportService {
     JobSearchReport saveJobSearchReport(JobSearchReport jobSearchReport);
     List<JobSearchReport> getAllJobSearchReport();
+    JobSearchReport getJobSearchReportByStudentid(int id);
 }

@@ -1,24 +1,27 @@
 package edu.miu.team4.project.microserviceone.domain;
 
+import edu.miu.team4.project.microserviceone.DTO.Student;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Entity
-public class Coach{
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-
-    private String name;
-//    @Temporal(TemporalType.DATE)
-    @Column(name="hiring_date")
-    private Date hiringDate;
-    @Column(name="room_office")
-    private String roomOffice;
-    @Column(name="responsability_desc")
-    private String responsabilityDesc;
+public class Coach extends Employee{
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    private int id;
+//
+//    private String name;
+////    @Temporal(TemporalType.DATE)
+//    @Column(name="hiring_date")
+//    private Date hiringDate;
+//    @Column(name="room_office")
+//    private String roomOffice;
+//    @Column(name="responsability_desc")
+//    private String responsabilityDesc;
+//    private int studentId;
 
     @ElementCollection
     @CollectionTable(name="coach_Student")
