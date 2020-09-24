@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import am.i.databaseBuilder.Student;
+
 @Entity
 public class Attendance {
 	@Id

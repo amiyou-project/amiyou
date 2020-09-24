@@ -11,6 +11,8 @@ import am.i.faculty.domain.Attendance;
 
 @Repository
 public interface AttendanceRepository extends JpaRepository <Attendance,Integer> {
+	//List<Attendance>findByAttendanceId(int attendanceId,Pageable pageRequest);
+    //long countByAttendanceId(int student_id);
 	//public List<Attendance>findByAttendanceId(int id,Pageable pageRequest);
   //  public long countByAttendanceId(int student_id);
 

@@ -1,7 +1,7 @@
 package edu.miu.team4.project.microserviceone.repository;
 
-import edu.miu.team4.project.microserviceone.domain.Job;
 import org.springframework.data.jpa.repository.JpaRepository;
+import edu.miu.team4.project.microserviceone.domain.Job;
 import org.springframework.stereotype.Repository;
 
 @Repository

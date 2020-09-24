@@ -1,0 +1,107 @@
+[
+    {
+        "building": "141",
+        "end": "2020-09-23T00:00:00.000+00:00",
+        "room": "room",
+        "start": "2020-09-23T00:00:00.000+00:00",
+        "title": "title",
+        "professor": {
+            "id": 0,
+            "name": "asdf",
+            "addressId": 0,
+            "hiringDate": "date",
+            "responsabilityDesc": "asdf",
+            "roomOffice": "asdf",
+            "departement": "asdf"
+        },
+        "ta": 0
+    },
+    {
+        "building": "141",
+        "end": "2020-09-22T00:00:00.000+00:00",
+        "room": "room",
+        "start": "2020-09-22T00:00:00.000+00:00",
+        "title": "title",
+        "professor": {
+            "id": 1,
+            "name": "asdf",
+            "addressId": 1,
+            "hiringDate": "date",
+            "responsabilityDesc": "asdf",
+            "roomOffice": "asdf",
+            "departement": "asdf"
+        },
+        "ta": 1
+    },
+    {
+        "building": "141",
+        "end": "2020-09-22T00:00:00.000+00:00",
+        "room": "room",
+        "start": "2020-09-22T00:00:00.000+00:00",
+        "title": "title",
+        "professor": {
+            "id": 2,
+            "name": "asdf",
+            "addressId": 2,
+            "hiringDate": "date",
+            "responsabilityDesc": "asdf",
+            "roomOffice": "asdf",
+            "departement": "asdf"
+        },
+        "ta": 2
+    },
+    {
+        "building": "141",
+        "end": "2020-02-02T00:00:00.000+00:00",
+        "room": "idk",
+        "start": "2020-02-02T00:00:00.000+00:00",
+        "title": "very good course",
+        "professor": null,
+        "ta": 0
+    },
+    {
+        "building": "141",
+        "end": "2020-02-02T00:00:00.000+00:00",
+        "room": "idk",
+        "start": "2020-02-02T00:00:00.000+00:00",
+        "title": "very good course",
+        "professor": null,
+        "ta": 0
+    },
+    {
+        "building": "141",
+        "end": "2020-02-02T00:00:00.000+00:00",
+        "room": "idk",
+        "start": "2020-02-02T00:00:00.000+00:00",
+        "title": "very good course",
+        "professor": null,
+        "ta": 0
+    },
+    {
+        "building": "141",
+        "end": "2020-02-02T00:00:00.000+00:00",
+        "room": "idk",
+        "start": "2020-02-02T00:00:00.000+00:00",
+        "title": "very good course",
+        "professor": null,
+        "ta": 0
+    },
+    {
+        "building": "141",
+        "end": "2020-02-02T00:00:00.000+00:00",
+        "room": "idk",
+        "start": "2020-02-02T00:00:00.000+00:00",
+        "title": "very good course",
+        "professor": null,
+        "ta": 0
+    },
+    {
+        "building": "141",
+        "end": "2020-02-02T00:00:00.000+00:00",
+        "room": "idk",
+        "start": "2020-02-02T00:00:00.000+00:00",
+        "title": "very good course",
+        "professor": null,
+        "ta": 1
+    }
+]
