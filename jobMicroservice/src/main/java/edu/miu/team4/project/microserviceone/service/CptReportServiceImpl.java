@@ -2,6 +2,7 @@ package edu.miu.team4.project.microserviceone.service;
 
 import com.netflix.appinfo.InstanceInfo;
 import com.netflix.discovery.EurekaClient;
+import dtos.CourseDTO;
 import edu.miu.team4.project.microserviceone.DTO.Student;
 import edu.miu.team4.project.microserviceone.domain.CptReport;
 import edu.miu.team4.project.microserviceone.repository.CptReportRepository;
@@ -40,34 +41,43 @@ public class CptReportServiceImpl implements CptReportService{
         return cptReportRepository.findAll();
     }
 
+    @Value("${students}")
+    private String studentsService;
+
+    private String myEurekaLookup(String serviceName) {
+        InstanceInfo instanceInfo = eurekaClient.getNextServerFromEureka(serviceName, false);
+        return instanceInfo.getHomePageUrl();
+    }
     @Override
-    public List<Student> getStudents() {
-        System.out.println("we hit this point");
-        String url = "http://localhost:8086/students";
-        ResponseEntity<List> responseEntity = restTemplate.exchange(url, HttpMethod.GET, null, List.class );
-        List<Student> student = responseEntity.getBody();
-        return student;
+    public List<Student> getStudents(){
+        return restTemplate.getForObject(myEurekaLookup(studentsService)+ "/students", List.class);
     }
 
-    @Override
-    public Student getStudentById(int id) {
-        System.out.println("we hit thin7s point");
-        String url = "http://localhost:8086/students/";
-        ResponseEntity<Student> responseEntity = restTemplate.exchange(url + id, HttpMethod.GET, null, Student.class );
-        Student student = responseEntity.getBody();
-        return student;
-    }
+//    @Override
+//    public List<Student> getStudents() {
+//        System.out.println("we hit this point");
+//        String url = "http://localhost:8086/students";
+//        ResponseEntity<List> responseEntity = restTemplate.exchange(url, HttpMethod.GET, null, List.class );
+//        List<Student> student = responseEntity.getBody();
+//        return student;
+//    }
 
+//    @Override
+//    public Student getStudentById(int id) {
+//        System.out.println("we hit thin7s point");
+//        String url = "http://localhost:8086/students/";
+//        ResponseEntity<Student> responseEntity = restTemplate.exchange(url + id, HttpMethod.GET, null, Student.class );
+//        Student student = responseEntity.getBody();
+//        return student;
+//    }
+    @Override
+    public Student getStudentById(int id){
+        return restTemplate.getForObject(myEurekaLookup(studentsService)+ "/students/"+id+"", Student.class);
+    }
     @Override
     public CptReport getCptReportByStudentId(int id) {
         return cptReportRepository.findByStudentnum(id);
     }
-//    @Override
-//    public Student getStudentById(int id) {
-//        System.out.println("we hit this point");
-//        return restTemplate.getForObject(studentServiceName,Student.class);
-//    }
-
     private String myEurekaLookUp(String serviceName){
         InstanceInfo instanceInfo= eurekaClient.getNextServerFromEureka(serviceName, false);
         return instanceInfo.getHomePageUrl();
