@@ -14,7 +14,7 @@ public interface AttendanceService {
 
 	public void deleteAttendance(int id);
 
-	public int getcountAttendance(int student_id, int course_id);
+	//public int getcountAttendance(int student_id, int course_id);
 		
 
 }

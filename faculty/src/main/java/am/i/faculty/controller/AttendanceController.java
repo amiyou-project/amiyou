@@ -41,8 +41,8 @@ public class AttendanceController {
 	      
 	        return true;
 	    }
-	   @GetMapping("/student/{student_id}/course/{course_id}/count")
-	    public int getcountAttendance(@PathVariable int student_id, @PathVariable int course_id){
-	        return attendanceService.getcountAttendance(student_id,course_id);
-	    }
+//	   @GetMapping("/student/{student_id}/course/{course_id}/count")
+//	    public int getcountAttendance(@PathVariable int student_id, @PathVariable int course_id){
+//	        return attendanceService.getcountAttendance(student_id,course_id);
+//	    }
 }

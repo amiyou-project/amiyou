@@ -45,13 +45,13 @@ public class AttendanceServiceImpl implements AttendanceService {
 		
 	}
 
-	@Override
-	public int getcountAttendance(int student_id, int course_id) {
-		
-		if (attendanceRepository.findById(student_id).isPresent())
-			if (attendanceRepository.findById(course_id).isPresent())
-				return  (int) attendanceRepository.countByAttendanceId(student_id);
-		return (Integer) null;
-	}
+//	@Override
+//	public int getcountAttendance(int student_id, int course_id) {
+//		
+//		if (attendanceRepository.findById(student_id).isPresent())
+//			if (attendanceRepository.findById(course_id).isPresent())
+//				return  (int) attendanceRepository.countByAttendanceId(student_id);
+//		return (Integer) null;
+//	}
 
 }

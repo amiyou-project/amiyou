@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import am.i.databaseBuilder.Student;
+
 @Entity
 public class Attendance {
 	@Id
@@ -16,7 +18,7 @@ public class Attendance {
 
 	private int sessionAttended;
 	private String description;
-	private Student student;
+	//private Student student;
 	
 	@ManyToOne
 	private Course course;
@@ -26,13 +28,13 @@ public class Attendance {
 		super();	
 	}
 
-	public Attendance(Date courseDate, int sessionAttended, String description, Student student, Course course) {
+	public Attendance(Date courseDate, int sessionAttended, String description, int student, Course course) {
 
 		super();
 		this.courseDate = courseDate;
 		this.sessionAttended = sessionAttended;
 		this.description = description;
-		this.studentId = student_id;
+		this.studentId = student;
 		this.course = course;
 	}
  
