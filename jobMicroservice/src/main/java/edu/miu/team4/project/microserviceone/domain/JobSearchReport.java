@@ -16,6 +16,19 @@ public class JobSearchReport {
 
     public JobSearchReport() {
     }
+    public JobSearchReport(long id, Date date, int studentid, String report) {
+
+        super();
+
+        this.id = id;
+
+        this.date = date;
+
+        this.studentid = studentid;
+
+        this.report = report;
+
+    }
 
     public long getId() {
         return id;
