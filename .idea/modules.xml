@@ -3,6 +3,12 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/amiyou.iml" filepath="$PROJECT_DIR$/.idea/amiyou.iml" />
+      <module fileurl="file://$PROJECT_DIR$/databaseBuilder/databaseBuilder.iml" filepath="$PROJECT_DIR$/databaseBuilder/databaseBuilder.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka/eureka.iml" filepath="$PROJECT_DIR$/eureka/eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/faculty/faculty.iml" filepath="$PROJECT_DIR$/faculty/faculty.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jobMicroservice/jobMicroservice.iml" filepath="$PROJECT_DIR$/jobMicroservice/jobMicroservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/student/student.iml" filepath="$PROJECT_DIR$/student/student.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tm/tm.iml" filepath="$PROJECT_DIR$/tm/tm.iml" />
     </modules>
   </component>
 </project>

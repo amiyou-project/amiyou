@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface JobSearchReportRepository extends JpaRepository<JobSearchReport, String> {
+    JobSearchReport getByStudentid(int id);
 }
