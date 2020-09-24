@@ -8,15 +8,22 @@ import org.springframework.web.bind.annotation.RestController;
 
 import am.i.gateway.service.ServiceGatway;
 import am.i.databaseBuilder.Course;
+import am.i.databaseBuilder.Student;
 
 @RestController
 public class Controller {
 	@Autowired
 	private ServiceGatway service;
 	
-	@GetMapping("/countries")
-	public List<Course> getCountries() {
+	@GetMapping("/courses")
+	public List<Course> getCourses() {
 		System.out.println("Did reach Controller");
 		return service.getCourses();
+	}
+	
+	@GetMapping("/students")
+	public List<Student> getStudents() {
+		System.out.println("Did reach Controller");
+		return service.getStudents();
 	}
 }

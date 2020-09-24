@@ -10,6 +10,7 @@ import com.netflix.appinfo.InstanceInfo;
 import com.netflix.discovery.EurekaClient;
 import org.springframework.stereotype.Service;
 import am.i.databaseBuilder.Course;
+import am.i.databaseBuilder.Student;
 
 @Service
 public class ServiceGatway implements IService{
@@ -19,13 +20,24 @@ public class ServiceGatway implements IService{
 
 	@Autowired
 	private EurekaClient eurekaClient;
-	@Value("${country-service}")
-	private String courseService;
+	
+	@Value("${faculty-service}")
+	private String facultyService;
+	
+	@Value("${student-service}")
+	private String studentService;
 
 	@Override
 	public List<Course> getCourses() {
-		return restTemplate.getForObject(myEurekaLookup(courseService) + "/courses", List.class);
+		return restTemplate.getForObject(myEurekaLookup(facultyService) + "/courses", List.class);
 	}
+	
+	@Override
+	public List<Student> getStudents() {
+		return restTemplate.getForObject(myEurekaLookup(studentService) + "/students", List.class);
+	}
+	
+	
 	
 	private String myEurekaLookup(String serviceName) {
 		InstanceInfo instanceInfo = eurekaClient.getNextServerFromEureka(serviceName, false);
