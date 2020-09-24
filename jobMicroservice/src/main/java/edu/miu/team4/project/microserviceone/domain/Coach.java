@@ -13,17 +13,17 @@ import java.util.List;
 public class Coach extends Employee{
 
     @ElementCollection
-    @CollectionTable(name="Coach_Student")
-    private List<Integer> student_ids = new ArrayList();
+    @CollectionTable(name="coach_Student")
+    private List<Integer> student_id = new ArrayList();
 
     public List<Integer> getStudent_id() {
-        return student_ids;
+        return student_id;
     }
 
-    public void setStudent_id(List<Integer> student_id) {
-        this.student_ids = student_id;
-    }
+//    public void setStudent_id(List<Integer> student_id) {
+//        this.student_id = student_id;
+//    }
     public boolean addStudent_id(Integer studentId){
-        return student_ids.add(studentId);
+        return student_id.add(studentId);
     }
 }
