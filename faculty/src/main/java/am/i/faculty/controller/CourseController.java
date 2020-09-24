@@ -51,4 +51,8 @@ public class CourseController {
 	public boolean registerStudent(@PathVariable int course_id, @PathVariable int student_id) {
 		return courseService.registerStudent(course_id, student_id);
 	}
+	@DeleteMapping("/{course_id}/unregister/{student_id}")
+	public boolean deleteRegistration(@PathVariable int course_id, @PathVariable int student_id) {
+		return courseService.unregisterStudent(course_id, student_id);
+	}
 }

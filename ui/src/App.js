@@ -1,22 +1,25 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import logo from './logo.svg';
 import Login from './Login'
+import StudentDashboard from './StudentDashboard'
 
 function App (props){
-  const [logged, setLogged] = useState(false);
-  const [student, setStudent] = useState([]);
-
-  //
+  const [student, setStudent] = useState(null);
+  const [courses, setCourses] = useState([]);
+  const [myCourses, setMyCourses] = useState([]);
+  const [students, setStudents] = useState([]);
 
   const page = () => {
-      if(!logged) return <Login setLogged={setLogged} setStudent={setStudent}/>;
-      else return (
-        <div>
-          <h1>AMIYOU</h1>
-          <ul>{student.map(v => (<li>{v.title}</li>))}</ul>
-        </div>
-      );
+      if(!student) return <Login 
+        setStudent={setStudent} 
+        setStudents={setStudents} 
+        setCourses={setCourses}
+        setMyCourses={setMyCourses} />;
+      else return <StudentDashboard 
+        courses={courses} 
+        students={students} 
+        myCourses={myCourses}
+        student={student} />;
   }
   return (
       <div>
