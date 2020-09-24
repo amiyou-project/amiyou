@@ -11,6 +11,8 @@ import org.springframework.web.client.RestTemplate;
 @EnableDiscoveryClient
 @EnableCircuitBreaker
 public class TmApplication {
+	
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(TmApplication.class, args);
