@@ -11,9 +11,12 @@ public abstract class Employee {
     private int id;
 
     private String name;
+    @Column
     @Temporal(TemporalType.DATE)
     private Date hiringDate;
+    @Column
     private String roomOffice;
+    @Column
     private String responsabilityDesc;
 
     public Employee() {

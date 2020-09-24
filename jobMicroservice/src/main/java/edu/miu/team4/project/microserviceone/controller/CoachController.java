@@ -5,6 +5,7 @@ import edu.miu.team4.project.microserviceone.domain.Coach;
 import edu.miu.team4.project.microserviceone.domain.CptReport;
 import edu.miu.team4.project.microserviceone.domain.Job;
 import edu.miu.team4.project.microserviceone.domain.JobSearchReport;
+import edu.miu.team4.project.microserviceone.service.CoachService;
 import edu.miu.team4.project.microserviceone.service.CptReportService;
 import edu.miu.team4.project.microserviceone.service.JobSearchReportService;
 import edu.miu.team4.project.microserviceone.service.JobService;
@@ -25,6 +26,9 @@ public class CoachController {
 
     @Autowired
     public JobSearchReportService jobSearchReportService;
+
+    @Autowired
+    public CoachService coachService;
 
     @GetMapping
     public String hello(){
@@ -51,18 +55,34 @@ public class CoachController {
         return jobSearchReportService.saveJobSearchReport(jobSearchReport);
 
     }
-//    @GetMapping("/all")
-//    public List<Coach> getCoaches(){
-//        return ;
-//    }
+    @GetMapping("/all")
+    public List<Coach> getCoaches(){
+        return coachService.getAllCoaches();
+    }
 
-//cra
 
-//    @PostMapping("/assignStudent")
-//    public List<Student> assignStudent(int id){
-//    cpt.getstud
-//        return students.add(student);
-//
-//    }
+    public Student getStudentById(int id) {
+        return cptReportService.getStudentById(id);
+    }
+
+    @PatchMapping("/assignStudent")
+    public Coach assignStudent(@RequestParam int coach_id, @RequestParam int stud_id){
+        return coachService.assignStudent(coach_id,stud_id);
+
+    }
+    @GetMapping("/getCoachByStudentid/{id}")
+    public Coach getCoachByStudentid(@PathVariable int id) {
+        return coachService.getCoachByStudentid(id);
+    }
+
+    @GetMapping("/saveCoaches")
+    public Coach saveCoaches(Coach coach){
+        return coachService.saveCoach(coach);
+    }
+
+    @GetMapping("/getJobSearchReportByStudentid/{id}")
+    public JobSearchReport getJobSearchReportByStudentid(@PathVariable int id) {
+        return jobSearchReportService.getJobSearchReportByStudentid(id);
+    }
 
 }
