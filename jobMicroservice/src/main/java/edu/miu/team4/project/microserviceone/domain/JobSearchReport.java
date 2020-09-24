@@ -10,7 +10,7 @@ public class JobSearchReport {
     private long id;
     @Temporal(TemporalType.DATE)
     private Date date;
-    private String studentid;
+    private int studentid;
     @Column(length = 100)
     private String report;
 
@@ -33,11 +33,11 @@ public class JobSearchReport {
         this.date = date;
     }
 
-    public String getStudentid() {
+    public int getStudentid() {
         return studentid;
     }
 
-    public void setStudentid(String studentid) {
+    public void setStudentid(int studentid) {
         this.studentid = studentid;
     }
 

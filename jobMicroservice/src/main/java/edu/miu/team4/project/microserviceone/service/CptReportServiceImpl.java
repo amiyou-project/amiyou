@@ -57,6 +57,11 @@ public class CptReportServiceImpl implements CptReportService{
         Student student = responseEntity.getBody();
         return student;
     }
+
+    @Override
+    public CptReport getCptReportByStudentId(int id) {
+        return cptReportRepository.findByStudentnum(id);
+    }
 //    @Override
 //    public Student getStudentById(int id) {
 //        System.out.println("we hit this point");

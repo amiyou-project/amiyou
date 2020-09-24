@@ -1,6 +1,7 @@
 package edu.miu.team4.project.microserviceone.controller;
 
 import edu.miu.team4.project.microserviceone.DTO.Student;
+import edu.miu.team4.project.microserviceone.domain.Coach;
 import edu.miu.team4.project.microserviceone.domain.CptReport;
 import edu.miu.team4.project.microserviceone.service.CptReportService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,4 +35,10 @@ public class cptReportController {
     public Student getStudentById(@PathVariable int id) {
         return cptReportService.getStudentById(id);
     }
+
+    @GetMapping("/getCptReportByStudentid/{id}")
+    public CptReport getCptReportByStudentid(@PathVariable int id) {
+        return cptReportService.getCptReportByStudentId(id);
+    }
+
 }
