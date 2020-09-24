@@ -15,9 +15,11 @@ public class Student extends Person {
 	private Date enrollDate;
 	private Date gradDate;
 	private float gpa;
-	@ManyToOne(optional = true)
+	
+	@ManyToOne
 	private Coach coach;
-	@ManyToMany
+	
+	@ManyToMany(mappedBy = "students")
 	@JoinTable
 	private List<Course> courses;
 	

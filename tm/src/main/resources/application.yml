@@ -4,9 +4,9 @@ spring:
   application:
     name: tm-rest-service
   datasource:
-    url: jdbc:mysql://localhost/tmservice
+    url: jdbc:mysql://localhost/amiyou?serverTimezone=UTC
     username: ea
-    password: PassYes@123
+    password: cs544
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     show-sql: true

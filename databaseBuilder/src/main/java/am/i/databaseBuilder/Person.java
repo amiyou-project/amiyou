@@ -18,8 +18,7 @@ public  abstract class Person {
 	
 	private String name;
 	
-	@OneToOne(targetEntity = Address.class)
-	@JoinColumn(name="address_id")
+	@OneToOne
 	private Address address;
 	
 	public Person() { }

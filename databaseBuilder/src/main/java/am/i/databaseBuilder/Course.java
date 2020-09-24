@@ -19,13 +19,19 @@ public class Course {
 	private String title;
 	private String building;
 	private String room;
+	
 	@ManyToOne
 	private Faculty professor;
+	
+	@ManyToMany
 	private List<Student> students;
+	
 	private Date start;
 	private Date end;
+	
 	@OneToOne
 	private Student ta;
+	
 	@OneToMany(mappedBy="course")
 	private List<Attendance> attendances;
 	
