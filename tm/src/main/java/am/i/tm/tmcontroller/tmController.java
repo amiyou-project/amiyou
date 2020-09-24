@@ -1,5 +1,7 @@
 package am.i.tm.tmcontroller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import DTO.Student;
 import am.i.tm.tmdomain.TMAppointment;
 import am.i.tm.tmdomain.TMAttendance;
 import am.i.tm.tmdomain.TMInstructor;
@@ -82,6 +85,12 @@ public class tmController {
 	@GetMapping("/appointments/{id}")
 	public TMAppointment getAppointment(@PathVariable int id) {
 		return appointmentService.getAppointmentById(id);
+	}
+	
+	//=========================show Students====================================
+	@GetMapping("/students")
+	public List<Student>getAllStudentsFromService(){
+		return tmservice.getStudents();
 	}
 
 }
