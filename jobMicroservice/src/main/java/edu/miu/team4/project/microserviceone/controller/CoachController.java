@@ -75,8 +75,9 @@ public class CoachController {
         return coachService.getCoachByStudentid(id);
     }
 
-    @GetMapping("/saveCoaches")
-    public Coach saveCoaches(Coach coach){
+    @PostMapping("/saveCoaches")
+    public Coach saveCoaches(@RequestBody Coach coach){
+        System.out.println("whats going on");
         return coachService.saveCoach(coach);
     }
 
