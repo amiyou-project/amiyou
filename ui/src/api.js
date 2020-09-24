@@ -30,6 +30,8 @@ const api = {
         const data =await fetch(`${url}/courses/student/${st_id}`);
         return await data.json() // courses
     }
+    //saveCptReport
+    //saveJobSearchReport
 }
 
 export default api
