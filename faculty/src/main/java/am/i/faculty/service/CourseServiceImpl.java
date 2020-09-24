@@ -66,4 +66,14 @@ public class CourseServiceImpl implements CourseService {
 		courseRepository.deleteById(id);
 		return true;
 	}
+
+	@Override
+	public boolean unregisterStudent(int course_id, int student_id) {
+		List<StudentCourses> registration = studentCoursesRepository.findByCourseIdAndStudentId(course_id, student_id);
+		if(!registration.isEmpty()) {
+			studentCoursesRepository.deleteAll(registration);
+		}
+		return true;
+	}
+
 }
