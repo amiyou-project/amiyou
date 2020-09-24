@@ -20,7 +20,4 @@ public interface tmService {
 	public TMInstructor getInstructorById(int id);
 
 	 public TMInstructor getInstructorByName(String lname);
-
-	List<Student> getStudents();
-
 }

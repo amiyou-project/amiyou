@@ -1,4 +1,3 @@
-student: student
 server:
   port: 8091
 spring:
