@@ -71,6 +71,18 @@ public class StudentContoller {
 		return  courss;
 	}
 	
+	@GetMapping("/students/{id}/courses/taken")
+	public List<CourseDTO> fetchTakenCourses(@PathVariable int id) {
+		List<CourseDTO> courss = studentService.getAllTakenCourses(id);
+		return  courss;
+	}
+	
+	
+	@GetMapping("/students/courses")
+	public List<CourseDTO> fetchCourses() {
+		List<CourseDTO> courss = studentService.getAllCourses();
+		return  courss;
+	}
 	
 	@GetMapping("/students/{id}")
 	public Student fetchStudById(@PathVariable int id) {
@@ -103,10 +115,9 @@ public class StudentContoller {
 		return studentService.updateStudentInfo(stud);
 	}
 	
-	
-	@GetMapping("/students/{id}/update_course")
-	public CourseDTO updateStudentcourse(@PathVariable int id,@RequestParam String method,@RequestParam String title) {
-		return convertToCourseDTO(studentService.updateStudentRegistration(id,title,method));
+	@GetMapping("/students/{id}/register")
+	public CourseDTO registerAStudent(@PathVariable int id,@RequestParam int course_id) {
+		return studentService.registerInACourse(course_id, id);
 	}
 	
 	

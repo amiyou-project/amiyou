@@ -1,6 +1,7 @@
 package am.i.student.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -66,11 +67,18 @@ public class StudentService implements IStudentService {
 	public List<CourseDTO> getAllCourses() {		
 		return restTemplate.getForObject(myEurekaLookup(facultyService) + "/courses", List.class);
 	}
+	
 
 	@Override
-	public List<CourseDTO> getAllCoursesOfAStudent(int id) {		
-		return restTemplate.getForObject(myEurekaLookup(facultyService) + "/courses/student/"+id+"", List.class);
+	public List<CourseDTO> getAllTakenCourses(int id) {		
+		 List<CourseDTO> allC =  restTemplate.getForObject(myEurekaLookup(facultyService) + "/courses/student/"+id+"", List.class);
+		 
+		 List<CourseDTO> taken = allC.stream().filter((obj)-> obj.getEnd().compareTo(new java.util.Date())==0).collect(Collectors.toList());
+		 
+		 return taken;
 	}
+	
+	
 
 	@Override
 	public Course updateStudentRegistration(int id, String title, String method) {
@@ -78,6 +86,9 @@ public class StudentService implements IStudentService {
 		return restTemplate.getForObject("http://localhost:8086/courses/student/"+id+"", Course.class);
 	}
 
+//	/courses/{course_id}/register/{student_id}
+	
+	
 	@Override
 	public Student getStudentById(int id) {
 		// TODO Auto-generated method stub
@@ -98,8 +109,17 @@ public class StudentService implements IStudentService {
 		
 	}
 
+	@Override
+	public List<CourseDTO> getAllCoursesOfAStudent(int id) {
+		// TODO Auto-generated method stub
+		return restTemplate.getForObject(myEurekaLookup(facultyService) + "/courses/student/"+id+"", List.class);
+	}
 
 
+	@Override
+	public CourseDTO registerInACourse(int courseId,int studentId) {
+		return restTemplate.getForObject(myEurekaLookup(facultyService) + "/courses/"+courseId+"/register/"+studentId+"", CourseDTO.class);
+	}
 
 
 

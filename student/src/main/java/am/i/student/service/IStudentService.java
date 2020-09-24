@@ -26,4 +26,8 @@ public List<Student> getAllStudent();
 
 	List<CourseDTO> getAllCourses();
 
+	List<CourseDTO> getAllTakenCourses(int id);
+	
+	public CourseDTO registerInACourse(int courseId,int studentId);
+
 }
