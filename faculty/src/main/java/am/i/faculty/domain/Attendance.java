@@ -11,6 +11,7 @@ import am.i.databaseBuilder.Student;
 
 @Entity
 public class Attendance {
+	
 	@Id
 	@GeneratedValue
 	private Integer id;

@@ -5,24 +5,11 @@ spring:
   application:
     name: student
   datasource:
-<<<<<<< Updated upstream
-    url: jdbc:mysql://localhost/teststudent?serverTimezone=GMT-6
+    url: jdbc:mysql://localhost/amiyou?serverTimezone=GMT-6
     username: ea
-=======
-    url: jdbc:mysql://localhost/final-project
-    username: test
->>>>>>> Stashed changes
     password: cs544
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     show-sql: true
-    generate-ddl: true
     hibernate:
-      ddl-auto: create   
-         
- 
-   
-      
- 
-    
-  
+      ddl-auto: update
