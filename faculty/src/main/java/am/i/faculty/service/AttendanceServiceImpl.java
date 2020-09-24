@@ -41,11 +41,7 @@ public class AttendanceServiceImpl implements AttendanceService {
 		return attendanceRepository.save(attendance);
 	}
 
-//@Override
-//public Attendance getAttendanceByCourseAndStudentId(int student_id, int course_id) {
-//	// TODO Auto-generated method stub
-//	return null;
-//}
+
 
 @Override
 public List<Attendance> getAttendanceByStudentId(int student_id) {
@@ -80,13 +76,7 @@ public List<Attendance> getAttendanceByCourseAndStudentId(int student_id, int co
 		
 	}
 
-//	@Override
-//	public int getcountAttendance(int student_id, int course_id) {
-//		
-//		if (attendanceRepository.findById(student_id).isPresent())
-//			if (attendanceRepository.findById(course_id).isPresent())
-//				return  (int) attendanceRepository.countByAttendanceId(student_id);
-//		return (Integer) null;
-//	}
+
+
 
 }
