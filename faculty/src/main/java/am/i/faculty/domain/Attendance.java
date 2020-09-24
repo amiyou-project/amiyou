@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import am.i.databaseBuilder.Student;
+
 @Entity
 public class Attendance {
 	
@@ -19,7 +21,7 @@ public class Attendance {
 
 	private int sessionAttended;
 	private String description;
-	//private Student student;
+
 	
 	@ManyToOne
 	@JoinColumn
@@ -40,6 +42,7 @@ public class Attendance {
 		this.course = course;
 	}
  
+	
 	public Date getCourseDate() {
 		return courseDate;
 	}
