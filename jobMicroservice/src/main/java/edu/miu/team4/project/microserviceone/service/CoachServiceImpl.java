@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 @Transactional
@@ -39,6 +40,16 @@ public class CoachServiceImpl implements CoachService{
         Coach coach = getCoachById(coach_id);
         coach.addStudent_id(stud_id);
         return saveCoach(coach);
+    }
+
+    @Override
+    public Coach getCoachByStudentid(int id) {
+        return coachRepository.findByStudentid(id);
+    }
+
+    @Override
+    public List<Coach> getAllCoaches() {
+        return coachRepository.findAll();
     }
 
 //    @Override

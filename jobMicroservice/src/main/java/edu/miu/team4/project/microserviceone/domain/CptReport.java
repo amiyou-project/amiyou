@@ -1,8 +1,5 @@
 package edu.miu.team4.project.microserviceone.domain;
 
-import am.i.databaseBuilder.Student;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 import java.util.Date;
 
@@ -18,7 +15,7 @@ public class CptReport {
     @ManyToOne
     @JoinColumn(name = "job_id")
     private Job job;
-//    private Student student;
+    private int student_id;
 
 
     public CptReport() {

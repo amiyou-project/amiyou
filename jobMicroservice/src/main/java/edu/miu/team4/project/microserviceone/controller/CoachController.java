@@ -55,10 +55,10 @@ public class CoachController {
         return jobSearchReportService.saveJobSearchReport(jobSearchReport);
 
     }
-//    @GetMapping("/all")
-//    public List<Coach> getCoaches(){
-//        return ;
-//    }
+    @GetMapping("/all")
+    public List<Coach> getCoaches(){
+        return coachService.getAllCoaches();
+    }
 
 
     public Student getStudentById(int id) {
@@ -69,5 +69,14 @@ public class CoachController {
     public Coach assignStudent(@RequestParam int coach_id, @RequestParam int stud_id){
         return coachService.assignStudent(coach_id,stud_id);
 
+    }
+    @GetMapping("/getCoachByStudentid/{id}")
+    public Coach getCoachByStudentid(@PathVariable int id) {
+        return coachService.getCoachByStudentid(id);
+    }
+
+    @GetMapping("/saveCoaches")
+    public Coach saveCoaches(Coach coach){
+        return coachService.saveCoach(coach);
     }
 }
