@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import am.i.databaseBuilder.Student;
@@ -22,12 +23,11 @@ public class Attendance {
 	//private Student student;
 	
 	@ManyToOne
+	@JoinColumn
 	private Course course;
 	private int studentId;
 	
-	public Attendance() {
-		super();	
-	}
+	
 
 	public Attendance(Date courseDate, int sessionAttended, String description, int student, Course course) {
 
@@ -75,6 +75,12 @@ public class Attendance {
 	
 	public Integer getId() {
 		return id;
+	}
+
+	@Override
+	public String toString() {
+		return "Attendance [id=" + id + ", courseDate=" + courseDate + ", sessionAttended=" + sessionAttended
+				+ ", description=" + description + ", course=" + course + ", studentId=" + studentId + "]";
 	}
 
 
