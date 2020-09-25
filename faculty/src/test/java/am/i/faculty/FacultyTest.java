@@ -4,6 +4,7 @@ import static org.mockito.Mockito.when;
 
 import java.util.Date;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -16,12 +17,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
+import org.springframework.test.context.junit4.SpringRunner;
 
 import am.i.faculty.domain.Attendance;
 import am.i.faculty.domain.Course;
 import am.i.faculty.repository.AttendanceRepository;
+import am.i.faculty.repository.CourseRepository;
 import am.i.faculty.service.AttendanceService;
+import am.i.faculty.service.CourseService;
 
 
 @SpringBootTest
@@ -29,15 +32,23 @@ import am.i.faculty.service.AttendanceService;
 @RunWith(SpringJUnit4ClassRunner.class)
 public class FacultyTest {
    @Autowired
-   private AttendanceService attendanceService;
+   private CourseService courseService;
    @MockBean
-   private AttendanceRepository attendanceRepository;
+   private CourseRepository courseRepository;
+      
+   @Test
+   public void getCourse() {
+	  Course c = new Course();
+	  c.setTitle("remote");
+	  Optional<Course> o = Optional.of(c); 
+      when(courseRepository.findById(0)).thenReturn(o);
+      String testName = courseService.getCourseById(0).getTitle();
+      Assert.assertEquals("remote", testName);
+   }
    
    @Test
-   public void getAttendanceTest() {
-      when(attendanceRepository.findById(0).get().getDescription())
-      .thenReturn("remote");
-      String testName = attendanceService.getAttendanceById(0).getDescription();
-      Assert.assertEquals("remote", testName);
+   public void getCourses() {
+       when(courseRepository.findAll()).thenReturn(java.util.stream.Stream.of(new Course(), new Course()).collect(Collectors.toList()));
+       Assert.assertEquals(2, courseService.getAllCourse().size());
    }
 }
