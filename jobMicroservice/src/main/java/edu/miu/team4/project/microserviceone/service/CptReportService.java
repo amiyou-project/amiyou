@@ -10,4 +10,5 @@ public interface CptReportService {
     List<CptReport> getAllcptReports();
     List<Student> getStudents();
     Student getStudentById(int id);
+    CptReport getCptReportByStudentId(int id);
 }

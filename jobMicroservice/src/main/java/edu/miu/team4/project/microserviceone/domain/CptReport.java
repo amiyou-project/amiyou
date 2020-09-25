@@ -1,8 +1,5 @@
 package edu.miu.team4.project.microserviceone.domain;
 
-import am.i.databaseBuilder.Student;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 import java.util.Date;
 
@@ -18,10 +15,25 @@ public class CptReport {
     @ManyToOne
     @JoinColumn(name = "job_id")
     private Job job;
-//    private Student student;
-
+    @Column
+    private int studentnum;
 
     public CptReport() {
+    }
+    public CptReport(long id, Date date, String report, Job job, int studentnum) {
+
+        super();
+
+        this.id = id;
+
+        this.date = date;
+
+        this.report = report;
+
+        this.job = job;
+
+        this.studentnum = studentnum;
+
     }
 
     public long getId() {
@@ -54,5 +66,13 @@ public class CptReport {
 
     public void setJob(Job job) {
         this.job = job;
+    }
+
+    public int getStudentnum() {
+        return studentnum;
+    }
+
+    public void setStudentnum(int studentnum) {
+        this.studentnum = studentnum;
     }
 }

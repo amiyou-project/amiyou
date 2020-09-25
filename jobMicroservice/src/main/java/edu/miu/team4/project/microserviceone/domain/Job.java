@@ -24,6 +24,24 @@ public class Job {
 
     public Job() {
     }
+    public Job(long id, String title, String salary, Date startDate, List<CptReport> cptReports) {
+
+        super();
+
+        this.id = id;
+
+        this.title = title;
+
+        this.salary = salary;
+
+        this.startDate = startDate;
+
+        this.cptReports = cptReports;
+
+    }
+
+    public Job(int i) {
+    }
 
     public long getId() {
         return id;

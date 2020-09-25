@@ -31,4 +31,9 @@ public class JobSearchReportServiceImpl implements JobSearchReportService {
     public List<JobSearchReport> getAllJobSearchReport() {
         return jobSearchReportRepository.findAll();
     }
+
+    @Override
+    public JobSearchReport getJobSearchReportByStudentid(int id) {
+        return jobSearchReportRepository.getByStudentid(id);
+    }
 }
