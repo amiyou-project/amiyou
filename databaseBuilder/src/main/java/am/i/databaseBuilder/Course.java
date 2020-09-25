@@ -21,7 +21,7 @@ public class Course {
 	private String room;
 	@ManyToOne
 	private Faculty professor;
-	@ManyToMany
+	@ManyToMany(mappedBy="courses")
 	private List<Student> students;
 	private Date start;
 	private Date end;
