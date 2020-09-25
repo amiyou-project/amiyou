@@ -5,41 +5,48 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+import am.i.databaseBuilder.Student;
 
 @Entity
 public class Attendance {
+	
 	@Id
 	@GeneratedValue
 	private Integer id;
 	private Date courseDate;
-	private boolean isAttended;
+
+	private int sessionAttended;
 	private String description;
-	private int student_id;
+	//private Student student;
+	
 	@ManyToOne
+	@JoinColumn
 	private Course course;
+	private int studentId;
 	
-	public Attendance() {
-		super();	
-	}
 	
-	public Attendance(Date courseDate, boolean isAttended, String description, int student_id, Course course) {
+
+	public Attendance(Date courseDate, int sessionAttended, String description, int student, Course course) {
+
 		super();
 		this.courseDate = courseDate;
-		this.isAttended = isAttended;
+		this.sessionAttended = sessionAttended;
 		this.description = description;
-		this.student_id = student_id;
+		this.studentId = student;
 		this.course = course;
 	}
-
+ 
 	public Date getCourseDate() {
 		return courseDate;
 	}
 	public int getStudent() {
-		return student_id;
+		return studentId;
 	}
 	public void setStudent(int student) {
-		this.student_id = student;
+		this.studentId = student;
 	}
 	public Course getCourse() {
 		return course;
@@ -50,11 +57,11 @@ public class Attendance {
 	public void setCourseDate(Date courseDate) {
 		this.courseDate = courseDate;
 	}
-	public boolean isAttended() {
-		return isAttended;
+	public int sessionAttended() {
+		return sessionAttended;
 	}
-	public void setAttended(boolean isAttended) {
-		this.isAttended = isAttended;
+	public void setAttended(int sessionAttended) {
+		this.sessionAttended = sessionAttended;
 	}
 	public String getDescription() {
 		return description;
@@ -68,6 +75,12 @@ public class Attendance {
 	
 	public Integer getId() {
 		return id;
+	}
+
+	@Override
+	public String toString() {
+		return "Attendance [id=" + id + ", courseDate=" + courseDate + ", sessionAttended=" + sessionAttended
+				+ ", description=" + description + ", course=" + course + ", studentId=" + studentId + "]";
 	}
 
 

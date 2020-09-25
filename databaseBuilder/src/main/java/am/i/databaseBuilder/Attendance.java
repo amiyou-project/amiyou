@@ -13,49 +13,52 @@ public class Attendance {
 	@GeneratedValue
 	private Integer id;
 	private Date courseDate;
-	private boolean isAttended;
+
+	private int sessionAttended;
 	private String description;
-	@ManyToOne
-	private Student student;
+	//private Student student;
+	
 	@ManyToOne
 	private Course course;
+	private int studentId;
 	
 	public Attendance() {
 		super();	
 	}
-	
-	public Attendance(Date courseDate, boolean isAttended, String description, Student student, Course course) {
+
+	public Attendance(Date courseDate, int sessionAttended, String description, int student, Course course) {
+
 		super();
 		this.courseDate = courseDate;
-		this.isAttended = isAttended;
+		this.sessionAttended = sessionAttended;
 		this.description = description;
-//		this.student = student;
-//		this.course = course;
+		this.studentId = student;
+		this.course = course;
 	}
-
+ 
 	public Date getCourseDate() {
 		return courseDate;
 	}
-//	public Student getStudent() {
-//		return student;
-//	}
-//	public void setStudent(Student student) {
-//		this.student = student;
-//	}
-//	public Course getCourse() {
-//		return course;
-//	}
-//	public void setCourse(Course course) {
-//		this.course = course;
-//	}
+	public int getStudent() {
+		return studentId;
+	}
+	public void setStudent(int student) {
+		this.studentId = student;
+	}
+	public Course getCourse() {
+		return course;
+	}
+	public void setCourse(Course course) {
+		this.course = course;
+	}
 	public void setCourseDate(Date courseDate) {
 		this.courseDate = courseDate;
 	}
-	public boolean isAttended() {
-		return isAttended;
+	public int sessionAttended() {
+		return sessionAttended;
 	}
-	public void setAttended(boolean isAttended) {
-		this.isAttended = isAttended;
+	public void setAttended(int sessionAttended) {
+		this.sessionAttended = sessionAttended;
 	}
 	public String getDescription() {
 		return description;

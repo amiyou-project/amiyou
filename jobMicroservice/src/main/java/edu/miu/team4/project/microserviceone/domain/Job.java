@@ -1,5 +1,7 @@
 package edu.miu.team4.project.microserviceone.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
@@ -13,13 +15,32 @@ public class Job {
     private long id;
     private String title;
     private String salary;
+    @Temporal(TemporalType.DATE)
     private Date startDate;
 
-    @OneToMany
-    //@JoinColumn(name="job_id")
+    @OneToMany(mappedBy = "job")
+    @JsonIgnore
     private List<CptReport> cptReports=new ArrayList();
 
     public Job() {
+    }
+    public Job(long id, String title, String salary, Date startDate, List<CptReport> cptReports) {
+
+        super();
+
+        this.id = id;
+
+        this.title = title;
+
+        this.salary = salary;
+
+        this.startDate = startDate;
+
+        this.cptReports = cptReports;
+
+    }
+
+    public Job(int i) {
     }
 
     public long getId() {
@@ -52,6 +73,25 @@ public class Job {
 
     public void setStartDate(Date startDate) {
         this.startDate = startDate;
+    }
+
+    public boolean addCptReport(CptReport cptReport){
+        boolean success = false;
+        if (cptReports.add(cptReport)) {
+            cptReport.setJob(this);
+            success = true;
+        }
+        return success;
+    }
+
+    public boolean removeCptReport(CptReport cptReport){
+
+        boolean success = false;
+        if (cptReports.remove(cptReport)) {
+            cptReport.setJob(null);
+            success = true;
+        }
+        return success;
     }
 
     public List<CptReport> getCptReports() {

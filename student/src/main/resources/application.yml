@@ -1,15 +1,15 @@
+faculty: faculty
 server:
   port: 8086
 spring:
   application:
     name: student
   datasource:
-    url: jdbc:mysql://localhost/testStudent?serverTimezone=GMT-6
-    username: EAcs544
-    password: pwd
+    url: jdbc:mysql://localhost/amiyou?serverTimezone=GMT-6
+    username: ea
+    password: cs544
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     show-sql: true
-    generate-ddl: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update

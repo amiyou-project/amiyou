@@ -1,5 +1,7 @@
 package am.i.tm.tmservice;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,12 @@ public class AppointmentServiceImpl implements AppointmentService {
 			return appointmentRepository.findById(id).get();
 		}
 		return null;
+
+	}
+
+	@Override
+	public List<TMAppointment> getAllAppointments() {
+		return appointmentRepository.findAll();
 
 	}
 

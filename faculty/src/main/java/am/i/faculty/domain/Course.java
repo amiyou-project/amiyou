@@ -3,6 +3,7 @@ package am.i.faculty.domain;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,23 +15,25 @@ public class Course {
 	@Id
 	@GeneratedValue
 	private int id;
-	private String title;
 	private String building;
-	private String room;
-	//private Faculty professor;
-	//private List<Student> students;
-	//private List<Integer> studentIds;
-	private Date start;
 	private Date end;
+	private String room;
+	private Date start;
+	private String title;
+	@ManyToOne
+	private Faculty professor;
 	private int taId;
-	private int studentId;
-	//@ManyToOne
-	//private Student student;
 	@OneToMany(mappedBy="course")
 	private List<Attendance> attendances;
 	
 	public Course() { }
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getTitle() {
 		return title;
 	}
@@ -49,20 +52,6 @@ public class Course {
 	public void setRoom(String room) {
 		this.room = room;
 	}
-	/*
-	public Faculty getProfessor() {
-		return professor;
-	}
-	public void setProfessor(Faculty professor) {
-		this.professor = professor;
-	}
-	public List<Student> getStudents() {
-		return students;
-	}
-	public void setStudents(List<Student> students) {
-		this.students = students;
-	}
-	*/
 	public Date getStart() {
 		return start;
 	}
@@ -84,11 +73,19 @@ public class Course {
 	public void addAttendance(Attendance a) {
 		this.attendances.add(a);
 	}
-	public int getStudentId() {
-		return studentId;
+	public Faculty getProfessor() {
+		return professor;
 	}
 
-	public void setStudentId(int studentId) {
-		this.studentId = studentId;
+	public void setProfessor(Faculty f) {
+		this.professor = f;
 	}
+
+	@Override
+	public String toString() {
+		return "Course [id=" + id + ", building=" + building + ", end=" + end + ", room=" + room + ", start=" + start
+				+ ", title=" + title + ", professor=" + professor + ", taId=" + taId + ", attendances=" + attendances
+				+ "]";
+	}
+	
 }

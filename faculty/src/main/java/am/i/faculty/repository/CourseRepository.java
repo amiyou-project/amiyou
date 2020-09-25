@@ -9,6 +9,6 @@ import am.i.faculty.domain.Course;
 
 @Repository
 public interface CourseRepository extends JpaRepository<Course, Integer> {
-	public List<Course> findByStudentId(int id);
+	//public List<Course> findByStudentId(int id);
 }
 
