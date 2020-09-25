@@ -3,9 +3,10 @@ package am.i.faculty;
 import static org.mockito.Mockito.when;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
+import java.util.stream.Stream;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,8 +22,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import am.i.faculty.domain.Attendance;
 import am.i.faculty.domain.Course;
+import am.i.faculty.domain.StudentCourses;
 import am.i.faculty.repository.AttendanceRepository;
 import am.i.faculty.repository.CourseRepository;
+import am.i.faculty.repository.StudentCoursesRepository;
 import am.i.faculty.service.AttendanceService;
 import am.i.faculty.service.CourseService;
 
@@ -35,9 +38,11 @@ public class FacultyTest {
    private CourseService courseService;
    @MockBean
    private CourseRepository courseRepository;
+   @MockBean
+   private StudentCoursesRepository studentCoursesRepository;
       
    @Test
-   public void getCourse() {
+   public void getCourseById() {
 	  Course c = new Course();
 	  c.setTitle("remote");
 	  Optional<Course> o = Optional.of(c); 
@@ -47,8 +52,64 @@ public class FacultyTest {
    }
    
    @Test
+   public void getCourseNull() {
+	  Optional<Course> n = Optional.empty();
+      when(courseRepository.findById(999)).thenReturn(n);
+      Assert.assertEquals(null, courseService.getCourseById(999));
+   }
+   
+   @Test
    public void getCourses() {
-       when(courseRepository.findAll()).thenReturn(java.util.stream.Stream.of(new Course(), new Course()).collect(Collectors.toList()));
+	   List<Course> l = Stream.of(new Course(), new Course()).collect(Collectors.toList());
+       when(courseRepository.findAll()).thenReturn(l);
        Assert.assertEquals(2, courseService.getAllCourse().size());
+   }
+   @Test
+   public void getCoursesByStudentId() {
+	   StudentCourses sc = new StudentCourses();
+	   sc.setCourse(new Course());
+       when(studentCoursesRepository.findByStudentId(0)).thenReturn(Stream.of(sc).collect(Collectors.toList()));
+       Assert.assertEquals(1, courseService.getCourseByStudentId(0).size());
+   }
+   @Test
+   public void createCourse() {
+	   Course c = new Course();
+	   Course ci = new Course();
+	   ci.setId(0); 
+       when(courseRepository.save(c)).thenReturn(ci);
+       Assert.assertEquals(0, courseService.createCourse(c).getId());
+   }
+   @Test
+   public void registerStudent() {
+	   Course c = new Course();
+	   c.setId(0);
+	   Optional<Course> o = Optional.of(c); 
+	   StudentCourses sc = new StudentCourses();
+	   sc.setCourse(c);
+	   sc.setStudentId(1);
+//	   StudentCourses sct2 = new StudentCourses();
+//	   sct2.setCourse(c);
+//	   sct2.setStudentId(1);
+//	   sct2.setId(2);
+	   when(courseRepository.findById(0)).thenReturn(o);
+	   //when(studentCoursesRepository.save(sc)).thenReturn(sct2);
+	   StudentCourses sc3 = courseService.registerStudent(0,1);
+	   Assert.assertEquals(0, sc3.getCourse().getId());
+	   Assert.assertEquals(1, sc3.getStudentId());
+	   //Assert.assertEquals(2, sc3.getId());
+   }
+   
+   @Test
+   public void deleteCourse() {
+	   //when(courseRepository.deleteById(0)).thenReturn(void.class);
+	   boolean resp = courseService.deleteCourse(0);
+	   Assert.assertEquals(true, resp);
+   }
+   @Test
+   public void unregisterStudent() {
+	   List<StudentCourses> l = Stream.of(new StudentCourses(), new StudentCourses()).collect(Collectors.toList());
+	   when(studentCoursesRepository.findByCourseIdAndStudentId(0,1)).thenReturn(l);
+	   boolean resp = courseService.unregisterStudent(0, 1);
+	   Assert.assertEquals(true, resp);
    }
 }
