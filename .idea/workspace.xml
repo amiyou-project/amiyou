@@ -19,16 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cec7c284-62dc-44ae-af54-e3d4a7163bda" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobMicroservice/src/main/java/edu/miu/team4/project/microserviceone/controller/jobController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobMicroservice/src/main/java/edu/miu/team4/project/microserviceone/controller/jobSearchReportController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobMicroservice/src/main/java/edu/miu/team4/project/microserviceone/domain/wrapperStudent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobMicroservice/src/main/java/edu/miu/team4/project/microserviceone/service/CoachServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/jobMicroservice/src/main/java/edu/miu/team4/project/microserviceone/service/CoachServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobMicroservice/src/test/java/edu/miu/team4/project/microserviceone/jobMicroserviceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/jobMicroservice/src/test/java/edu/miu/team4/project/microserviceone/jobMicroserviceApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/student/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student/src/test/java/am/i/student/StudentApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/student/src/test/java/am/i/student/StudentApplicationTests.java" afterDir="false" />
-    </list>
+    <list default="true" id="cec7c284-62dc-44ae-af54-e3d4a7163bda" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -143,6 +134,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="gateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="am.i.gateway.GatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="JobMicroserviceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="jobMicroservice" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="edu.miu.team4.project.microserviceone.JobMicroserviceApplication" />
@@ -185,7 +183,7 @@
       <workItem from="1600823846576" duration="215000" />
       <workItem from="1600959835090" duration="11355000" />
       <workItem from="1600976102413" duration="14858000" />
-      <workItem from="1601137746389" duration="168000" />
+      <workItem from="1601137746389" duration="438000" />
     </task>
     <servers />
   </component>

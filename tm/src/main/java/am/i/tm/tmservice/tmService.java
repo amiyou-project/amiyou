@@ -1,5 +1,8 @@
 package am.i.tm.tmservice;
 
+import java.util.List;
+
+import DTO.Student;
 import am.i.tm.tmdomain.TMAppointment;
 import am.i.tm.tmdomain.TMAttendance;
 import am.i.tm.tmdomain.TMInstructor;
@@ -17,5 +20,4 @@ public interface tmService {
 	public TMInstructor getInstructorById(int id);
 
 	 public TMInstructor getInstructorByName(String lname);
-
 }

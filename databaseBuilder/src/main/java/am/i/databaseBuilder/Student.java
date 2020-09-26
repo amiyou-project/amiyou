@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -18,7 +19,9 @@ public class Student extends Person {
 	@ManyToOne(optional = true)
 	private Coach coach;
 	@ManyToMany
-	@JoinTable
+	@JoinTable(name="student_courses", 
+		joinColumns=@JoinColumn(name="student_id",referencedColumnName="id"),
+		inverseJoinColumns=@JoinColumn(name="course_id",referencedColumnName="id"))
 	private List<Course> courses;
 	
 	public Student() {}
