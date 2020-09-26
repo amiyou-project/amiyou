@@ -2,9 +2,13 @@ package am.i.student.service;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.PathVariable;
+
 import am.i.faculty.domain.Course;
 import am.i.student.domain.Student;
+import dtos.CPTReportDTO;
 import dtos.CourseDTO;
+import dtos.JobSearchReportDTO;
 
 
 
@@ -22,12 +26,13 @@ public List<Student> getAllStudent();
 
 	public List<CourseDTO> getAllCoursesOfAStudent(int id);
 
-	public Course updateStudentRegistration(int id, String title, String method);
-
 	List<CourseDTO> getAllCourses();
 
 	List<CourseDTO> getAllTakenCourses(int id);
 	
 	public CourseDTO registerInACourse(int courseId,int studentId);
+
+	public CPTReportDTO submitACPTReport(CPTReportDTO rprt,int id);
+	public JobSearchReportDTO submitJObReport(JobSearchReportDTO jRprt,int id);
 
 }

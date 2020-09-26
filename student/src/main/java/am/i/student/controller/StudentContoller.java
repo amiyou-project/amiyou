@@ -19,7 +19,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import am.i.student.domain.Student;
 import am.i.student.service.IStudentService;
+import dtos.CPTReportDTO;
 import dtos.CourseDTO;
+import dtos.JobSearchReportDTO;
 import am.i.databaseBuilder.Address;
 import am.i.faculty.domain.Course;
 
@@ -95,21 +97,6 @@ public class StudentContoller {
 		return studentService.getStudentByName(name);
 	}
 	
-	
-	@GetMapping("/teststudents")
-	public List<Student> getStudent() {
-		List<Student> studs = new ArrayList<>();
-		/*
-		 * studs.add(new Student("Gkane",new
-		 * Address("streetA","cityA","stateA",4365,"countrA"),111140,new
-		 * java.util.Date())); studs.add(new Student("Bkane",new
-		 * Address("streetB","cityB","stateB",4365,"countrB"),111141,new
-		 * java.util.Date())); studs.add(new Student("Ckane",new
-		 * Address("streetC","cityC","stateC",4365,"countrC"),111142,new
-		 * java.util.Date()));
-		 */return studs;
-	}
-	
 	@PostMapping("/students")
 	public Student updateCreateStudentInfo(@RequestBody Student stud) {
 		return studentService.updateStudentInfo(stud);
@@ -118,6 +105,21 @@ public class StudentContoller {
 	@GetMapping("/students/{id}/register")
 	public CourseDTO registerAStudent(@PathVariable int id,@RequestParam int course_id) {
 		return studentService.registerInACourse(course_id, id);
+	}
+	
+	
+	@PostMapping("/student/{id}/submitCPTReport")
+	public CPTReportDTO submitCPT(@RequestBody CPTReportDTO rprt,@PathVariable int id) {
+		
+		return studentService.submitACPTReport(rprt,id);
+		
+	}
+	
+	@PostMapping("/student/{id}/submitJObReport")
+	public JobSearchReportDTO submitJobCptReport(@RequestBody JobSearchReportDTO rprt,@PathVariable int id) {
+		
+		return studentService.submitJObReport(rprt,id);
+		
 	}
 	
 	

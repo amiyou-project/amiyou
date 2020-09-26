@@ -16,7 +16,9 @@ import com.netflix.discovery.EurekaClient;
 import am.i.faculty.domain.Course;
 import am.i.student.domain.Student;
 import am.i.student.repository.StudentDAO;
+import dtos.CPTReportDTO;
 import dtos.CourseDTO;
+import dtos.JobSearchReportDTO;
 
 @Service
 @Transactional
@@ -32,6 +34,9 @@ public class StudentService implements IStudentService {
 	
 	@Value("${faculty}")
 	private String facultyService;
+	
+	@Value("${first-microservice}")
+	private String jobService;
 	
 	@Autowired
 	private RestTemplate restTemplate;
@@ -88,13 +93,6 @@ public class StudentService implements IStudentService {
 		 return allC.stream().filter((obj)-> obj.getEnd().compareTo(new java.util.Date())==0).collect(Collectors.toList());
 	}
 	
-	
-
-	@Override
-	public Course updateStudentRegistration(int id, String title, String method) {
-		// TODO Auto-generated method stub
-		return restTemplate.getForObject("http://localhost:8086/courses/student/"+id+"", Course.class);
-	}
 
 //	/courses/{course_id}/register/{student_id}
 	
@@ -131,9 +129,20 @@ public class StudentService implements IStudentService {
 		return restTemplate.getForObject(myEurekaLookup(facultyService) + "/courses/"+courseId+"/register/"+studentId+"", CourseDTO.class);
 	}
 
+	@Override
+	public CPTReportDTO submitACPTReport(CPTReportDTO rprt,int id) {
+		// TODO Auto-generated method stub
+		CPTReportDTO theReport = restTemplate.getForObject(myEurekaLookup(jobService)+ "/cptReport/getCptReportByStudentid/"+id,CPTReportDTO.class);
+		theReport.setReport(rprt.getReport());
+		return restTemplate.postForObject(myEurekaLookup(jobService)+ "cptReport/saveCptReport",theReport, CPTReportDTO.class);
+	}
 
-
-
+	@Override
+	public JobSearchReportDTO submitJObReport(JobSearchReportDTO jRprt,int id) {
+		JobSearchReportDTO	theReport = restTemplate.getForObject(myEurekaLookup(jobService)+ "/cptReport/getJobSearchReportByStudentid/"+id,JobSearchReportDTO.class);
+		theReport.setReport(jRprt.getReport());
+		return restTemplate.postForObject(myEurekaLookup(jobService)+ "cptReport/createJobSearchReport",theReport, JobSearchReportDTO.class);
+	}
 
 
 
