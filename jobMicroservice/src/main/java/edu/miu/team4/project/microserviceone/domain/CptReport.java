@@ -18,22 +18,8 @@ public class CptReport {
     @Column
     private int studentnum;
 
+
     public CptReport() {
-    }
-    public CptReport(long id, Date date, String report, Job job, int studentnum) {
-
-        super();
-
-        this.id = id;
-
-        this.date = date;
-
-        this.report = report;
-
-        this.job = job;
-
-        this.studentnum = studentnum;
-
     }
 
     public long getId() {
@@ -75,4 +61,15 @@ public class CptReport {
     public void setStudentnum(int studentnum) {
         this.studentnum = studentnum;
     }
+
+	public CptReport(long id, Date date, String report, Job job, int studentnum) {
+		super();
+		this.id = id;
+		this.date = date;
+		this.report = report;
+		this.job = job;
+		this.studentnum = studentnum;
+	}
+    
+    
 }
