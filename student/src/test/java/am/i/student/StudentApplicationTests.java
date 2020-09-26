@@ -27,7 +27,7 @@ class StudentApplicationTests {
 	private StudentDAO studentDao;
 
 	@Test
-	public void getJobTest() {
+	public void getStudentTest() {
 		when(studentDao.findAll())
 				.thenReturn(
 						java.util.stream.Stream

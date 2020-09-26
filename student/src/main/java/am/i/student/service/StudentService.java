@@ -28,7 +28,7 @@ public class StudentService implements IStudentService {
 	public StudentDAO studentDao;
 
 	
-	// EUREKA CODE
+	
 	@Autowired
 	private EurekaClient eurekaClient;
 	
@@ -45,7 +45,6 @@ public class StudentService implements IStudentService {
 		InstanceInfo instanceInfo = eurekaClient.getNextServerFromEureka(serviceName, false);
 		return instanceInfo.getHomePageUrl();
 	}
-	// EUREKA CODE
 
 	@Override
 	public List<Student> getAllStudent() {
@@ -61,11 +60,13 @@ public class StudentService implements IStudentService {
 		this.studentDao = studentDao;
 	}
 
-	
-
 	@Override
 	public Student updateStudentInfo(Student stud) {
-		// TODO Auto-generated method stub
+		return studentDao.save(stud);
+	}
+	
+	@Override
+	public Student createStudentInfo(Student stud) {
 		return studentDao.save(stud);
 	}
 	
@@ -79,47 +80,29 @@ public class StudentService implements IStudentService {
 	public List<CourseDTO> getAllTakenCourses(int id) {		
 		 List<CourseDTO> allC =  restTemplate.getForObject(myEurekaLookup(facultyService) + "/courses/student/"+id+"", List.class);
 		
-		 // List<CourseDTO> taken = new ArrayList<>();
-		 
-			/*
-			 * for(CourseDTO crs : allC) { if(crs.getEnd().compareTo(new
-			 * java.util.Date())==0) { taken.add(crs); }
-			 * 
-			 * }
-			 */
-		 
-		   //allC.stream().filter((obj)-> obj.getEnd().compareTo(new java.util.Date())==0).collect(Collectors.toList());
-		 
 		 return allC.stream().filter((obj)-> obj.getEnd().compareTo(new java.util.Date())==0).collect(Collectors.toList());
 	}
-	
-
-//	/courses/{course_id}/register/{student_id}
 	
 	
 	@Override
 	public Student getStudentById(int id) {
-		// TODO Auto-generated method stub
 		return studentDao.findByStudentId(id);
 	}
 
 	@Override
 	public Student getStudentByName(String name) {
-		// TODO Auto-generated method stub
 		return studentDao.findByName(name); 
 		
 	}
 
 	@Override
 	public void addStudents(List<Student> stud) {
-		// TODO Auto-generated method stub
 		studentDao.saveAll(stud);
 		
 	}
 
 	@Override
 	public List<CourseDTO> getAllCoursesOfAStudent(int id) {
-		// TODO Auto-generated method stub
 		return restTemplate.getForObject(myEurekaLookup(facultyService) + "/courses/student/"+id+"", List.class);
 	}
 
@@ -131,7 +114,6 @@ public class StudentService implements IStudentService {
 
 	@Override
 	public CPTReportDTO submitACPTReport(CPTReportDTO rprt,int id) {
-		// TODO Auto-generated method stub
 		CPTReportDTO theReport = restTemplate.getForObject(myEurekaLookup(jobService)+ "/cptReport/getCptReportByStudentid/"+id,CPTReportDTO.class);
 		theReport.setReport(rprt.getReport());
 		return restTemplate.postForObject(myEurekaLookup(jobService)+ "cptReport/saveCptReport",theReport, CPTReportDTO.class);
@@ -144,9 +126,10 @@ public class StudentService implements IStudentService {
 		return restTemplate.postForObject(myEurekaLookup(jobService)+ "cptReport/createJobSearchReport",theReport, JobSearchReportDTO.class);
 	}
 
-
-
-
+	@Override
+	public void cancellAregisterInACourse(int course_id, int id) {
+		  restTemplate.delete(myEurekaLookup(facultyService)+"/"+course_id+"/unregister/"+id);
+	}
 
 
 

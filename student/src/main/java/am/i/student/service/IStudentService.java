@@ -23,6 +23,8 @@ public List<Student> getAllStudent();
 	public void addStudents(List<Student> stud);
 
 	public Student updateStudentInfo(Student stud);
+	
+	public Student createStudentInfo(Student stud);
 
 	public List<CourseDTO> getAllCoursesOfAStudent(int id);
 
@@ -34,5 +36,7 @@ public List<Student> getAllStudent();
 
 	public CPTReportDTO submitACPTReport(CPTReportDTO rprt,int id);
 	public JobSearchReportDTO submitJObReport(JobSearchReportDTO jRprt,int id);
+
+	public void cancellAregisterInACourse(int course_id, int id);
 
 }

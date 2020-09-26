@@ -7,9 +7,11 @@ import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -38,28 +40,6 @@ public class StudentContoller {
 	private CourseDTO convertToCourseDTO(Course course) {
 		   CourseDTO courseDto = modelMapper.map(course, CourseDTO.class);
 		   return courseDto;
-	}
-	
-	@GetMapping("/testinit")
-	public void homeinit1() {
-		List<Student> studs = new ArrayList<>();
-		
-		
-		  Student stud1 = new Student("Gkane",1,111140,new java.util.Date());
-				  stud1.setCoachId(null);
-		  Student stud2 = new Student("Bkane",2,111141,new java.util.Date());
-		  stud2.setCoachId(null); 
-		  Student stud3 = new Student("Ckane",3,111142,new java.util.Date());
-		  stud3.setCoachId(null);
-		  
-		  studs.addAll(Arrays.asList(stud1,stud2,stud3));
-		 
-		studentService.addStudents(studs);
-	}
-	
-	@GetMapping("/test")
-	public String testtt() {
-		return "My Test";
 	}
 	
 	@GetMapping("/students")
@@ -98,13 +78,23 @@ public class StudentContoller {
 	}
 	
 	@PostMapping("/students")
-	public Student updateCreateStudentInfo(@RequestBody Student stud) {
+	public Student createStudentInfo(@RequestBody Student stud) {
+		return studentService.createStudentInfo(stud);
+	}
+	
+	@PutMapping("/students")
+	public Student updateStudentInfo(@RequestBody Student stud) {
 		return studentService.updateStudentInfo(stud);
 	}
 	
 	@GetMapping("/students/{id}/register")
 	public CourseDTO registerAStudent(@PathVariable int id,@RequestParam int course_id) {
 		return studentService.registerInACourse(course_id, id);
+	}
+	
+	@DeleteMapping("/students/{id}/cancel_register")
+	public void cancellStudentRegistration(@PathVariable int id,@RequestParam int course_id) {
+		 studentService.cancellAregisterInACourse(course_id, id);
 	}
 	
 	
@@ -120,6 +110,29 @@ public class StudentContoller {
 		
 		return studentService.submitJObReport(rprt,id);
 		
+	}
+	
+	
+	@GetMapping("/testinit")
+	public void homeinit1() {
+		List<Student> studs = new ArrayList<>();
+		
+		
+		  Student stud1 = new Student("Gkane",1,111140,new java.util.Date());
+				  stud1.setCoachId(null);
+		  Student stud2 = new Student("Bkane",2,111141,new java.util.Date());
+		  stud2.setCoachId(null); 
+		  Student stud3 = new Student("Ckane",3,111142,new java.util.Date());
+		  stud3.setCoachId(null);
+		  
+		  studs.addAll(Arrays.asList(stud1,stud2,stud3));
+		 
+		studentService.addStudents(studs);
+	}
+	
+	@GetMapping("/test")
+	public String testtt() {
+		return "My Test";
 	}
 	
 	
