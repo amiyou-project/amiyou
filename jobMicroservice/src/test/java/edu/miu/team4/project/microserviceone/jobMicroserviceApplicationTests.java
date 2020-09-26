@@ -52,7 +52,7 @@ class jobMicroserviceApplicationTests {
                                 .of(new CptReport(1, new Date(), "hopefully thr last test", new Job(11), 3),
                                         new CptReport(2, new Date(), "hopefully thr last test", new Job(11), 3))
                                 .collect(Collectors.toList()));
-        assertEquals(2, cptReportService.getAllcptReports().size());
+        assertEquals(2, 0);
     }
 
     @Test
