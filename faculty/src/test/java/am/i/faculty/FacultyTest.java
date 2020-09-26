@@ -1,8 +1,6 @@
 
 package am.i.faculty;
 import static org.mockito.Mockito.when;
-
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -10,24 +8,19 @@ import java.util.stream.Stream;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.junit4.SpringRunner;
-
-import am.i.faculty.domain.Attendance;
 import am.i.faculty.domain.Course;
+import am.i.faculty.domain.Faculty;
 import am.i.faculty.domain.StudentCourses;
-import am.i.faculty.repository.AttendanceRepository;
 import am.i.faculty.repository.CourseRepository;
+import am.i.faculty.repository.FacultyRepository;
 import am.i.faculty.repository.StudentCoursesRepository;
-import am.i.faculty.service.AttendanceService;
 import am.i.faculty.service.CourseService;
+import am.i.faculty.service.FacultyService;
 
 
 @SpringBootTest
@@ -36,10 +29,14 @@ import am.i.faculty.service.CourseService;
 public class FacultyTest {
    @Autowired
    private CourseService courseService;
+   @Autowired
+   private FacultyService facultyService;
    @MockBean
    private CourseRepository courseRepository;
    @MockBean
    private StudentCoursesRepository studentCoursesRepository;
+   @MockBean
+   private FacultyRepository facultyRepository;
       
    @Test
    public void getCourseById() {
@@ -101,7 +98,6 @@ public class FacultyTest {
    
    @Test
    public void deleteCourse() {
-	   //when(courseRepository.deleteById(0)).thenReturn(void.class);
 	   boolean resp = courseService.deleteCourse(0);
 	   Assert.assertEquals(true, resp);
    }
@@ -112,4 +108,54 @@ public class FacultyTest {
 	   boolean resp = courseService.unregisterStudent(0, 1);
 	   Assert.assertEquals(true, resp);
    }
+   
+   // Faculty
+   
+   @Test
+   public void createFaculty() {
+	   Faculty c = new Faculty();
+	   Faculty ci = new Faculty();
+	   ci.setId(0); 
+       when(facultyRepository.save(c)).thenReturn(ci);
+       Assert.assertEquals(0, facultyService.createFaculty(c).getId());
+   }
+   
+   @Test
+   public void getFaculties() {
+	   List<Faculty> l = Stream.of(new Faculty(), new Faculty()).collect(Collectors.toList());
+       when(facultyRepository.findAll()).thenReturn(l);
+       Assert.assertEquals(2, facultyService.getAllFaculty().size());
+   }
+   
+   @Test
+   public void getFacultyById() {
+	  Faculty c = new Faculty();
+	  c.setName("remote");
+	  Optional<Faculty> o = Optional.of(c); 
+      when(facultyRepository.findById(0)).thenReturn(o);
+      String testName = facultyService.getFacultyById(0).getName();
+      Assert.assertEquals("remote", testName);
+   }
+   
+   @Test
+   public void getFacultyNull() {
+	  Optional<Faculty> n = Optional.empty();
+      when(facultyRepository.findById(99999)).thenReturn(n);
+      Assert.assertEquals(null, facultyService.getFacultyById(99999));
+   }
+   
+   @Test
+   public void deleteFaculty() {
+	   boolean resp = facultyService.deleteFaculty(0);
+	   Assert.assertEquals(true, resp);
+   }
+   @Test
+   public void updateFaculty() {
+	   Faculty f = new Faculty();
+	   f.setName("Najeeb");
+	   when(facultyRepository.save(f)).thenReturn(f);
+	   Faculty resp = facultyService.updateFaculty(f);
+	   Assert.assertEquals("Najeeb", resp.getName());
+   }
+   
 }
