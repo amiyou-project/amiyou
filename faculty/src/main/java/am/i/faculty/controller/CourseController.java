@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import am.i.faculty.domain.Course;
+import am.i.faculty.domain.StudentCourses;
 import am.i.faculty.service.CourseService;
 
 @CrossOrigin
@@ -48,7 +49,7 @@ public class CourseController {
 	}
 	
 	@GetMapping("/{course_id}/register/{student_id}")
-	public boolean registerStudent(@PathVariable int course_id, @PathVariable int student_id) {
+	public StudentCourses registerStudent(@PathVariable int course_id, @PathVariable int student_id) {
 		return courseService.registerStudent(course_id, student_id);
 	}
 	@DeleteMapping("/{course_id}/unregister/{student_id}")
