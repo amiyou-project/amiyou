@@ -18,6 +18,10 @@ public interface AttendanceService {
 
 	public List<Attendance> getAttendanceByCourseAndStudentId(int student_id, int course_id);
 
-	// public int getcountAttendance(int student_id, int course_id);
+	//public List<Attendance> getAllAttendanceById(int id);
+
+	public List<Attendance> getAllAttendance();
+
+ public int getcountAttendance(int student_id, int course_id);
 
 }

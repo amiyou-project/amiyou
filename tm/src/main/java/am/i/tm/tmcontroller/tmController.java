@@ -1,5 +1,6 @@
 package am.i.tm.tmcontroller;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -83,5 +84,5 @@ public class tmController {
 	public TMAppointment getAppointment(@PathVariable int id) {
 		return appointmentService.getAppointmentById(id);
 	}
-
+	
 }

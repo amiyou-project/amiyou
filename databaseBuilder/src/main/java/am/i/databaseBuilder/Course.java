@@ -19,24 +19,23 @@ public class Course {
 	private String title;
 	private String building;
 	private String room;
-	
+
 	@ManyToOne
 	private Faculty professor;
-	
-	@ManyToMany
+	@ManyToMany(mappedBy="courses")
 	private List<Student> students;
-	
+
 	private Date start;
 	private Date end;
-	
+
 	@OneToOne
 	private Student ta;
-	
+
 	@OneToMany(mappedBy="course")
 	private List<Attendance> attendances;
-	
+
 	public Course() { }
-	
+
 	public String getTitle() {
 		return title;
 	}
@@ -75,5 +74,5 @@ public class Course {
 //	}
 //	public void addAttendance(Attendance a) {
 //		this.attendances.add(a);
-//	}	
+//	}
 }

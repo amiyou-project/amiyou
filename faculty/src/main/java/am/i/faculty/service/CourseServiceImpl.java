@@ -35,10 +35,7 @@ public class CourseServiceImpl implements CourseService {
 		if(!studentCoursesRepository.findByStudentId(student_id).isEmpty())
 			res = studentCoursesRepository.findByStudentId(student_id)
 				.stream().map(sc -> sc.getCourse()).collect(Collectors.toList());
-		
-		List<Course> l = new ArrayList<Course>();
-		l.add(new Course());
-		return res; //courseRepository.findByStudentId(student_id);
+		return res;
 	}
 	
 	public List<Course> getAllCourse(){
@@ -47,18 +44,19 @@ public class CourseServiceImpl implements CourseService {
 
 	@Override
 	public Course createCourse(Course c) {
-		courseRepository.save(c);
-		return c;
+		Course d = courseRepository.save(c);
+		return d;
 	}
 
 	@Override
-	public boolean registerStudent(int course_id, int student_id) {
+	public StudentCourses registerStudent(int course_id, int student_id) {
 		StudentCourses sc = new StudentCourses();
 		if(courseRepository.findById(course_id).isPresent()) {
 			sc.setCourse(courseRepository.findById(course_id).get());
+			sc.setStudentId(student_id);
 			studentCoursesRepository.save(sc);
-			return true;
-		}else return false;
+			return sc;
+		}else return null;
 	}
 
 	@Override
