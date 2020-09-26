@@ -52,10 +52,4 @@ public class CoachServiceImpl implements CoachService{
         return coachRepository.findAll();
     }
 
-
-
-//    @Override
-//    public Coach getCoach(int id) {
-//        return coachRepository.findById(id);
-//    }
 }
