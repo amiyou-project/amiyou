@@ -1,10 +1,12 @@
 
 package am.i.faculty;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import java.util.Date;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,9 +18,12 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import am.i.faculty.domain.Course;
 import am.i.faculty.domain.Faculty;
 import am.i.faculty.domain.StudentCourses;
+import am.i.faculty.domain.Attendance;
+import am.i.faculty.repository.AttendanceRepository;
 import am.i.faculty.repository.CourseRepository;
 import am.i.faculty.repository.FacultyRepository;
 import am.i.faculty.repository.StudentCoursesRepository;
+import am.i.faculty.service.AttendanceService;
 import am.i.faculty.service.CourseService;
 import am.i.faculty.service.FacultyService;
 
@@ -31,7 +36,22 @@ public class FacultyTest {
    private CourseService courseService;
    @Autowired
    private FacultyService facultyService;
+   @Autowired
+   private AttendanceService attendanceService;
    @MockBean
+   private AttendanceRepository attendanceRepository;
+   
+  
+@Test
+	public void getInstructors() {
+		when(attendanceRepository.findAll())
+				.thenReturn(
+						java.util.stream.Stream
+								.of(new Attendance(new Date(),2, 2, "remote", 0, null),
+										new Attendance(new Date(),2, 2, "remote", 0, null))
+								.collect(Collectors.toList()));
+		assertEquals(2, attendanceService.getAllAttendance().size());
+	}
    private CourseRepository courseRepository;
    @MockBean
    private StudentCoursesRepository studentCoursesRepository;
