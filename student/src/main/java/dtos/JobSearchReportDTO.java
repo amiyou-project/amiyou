@@ -39,6 +39,16 @@ public class JobSearchReportDTO {
 	public void setReport(String report) {
 		this.report = report;
 	}
+
+
+	public Student getStudent() {
+		return student;
+	}
+
+
+	public void setStudent(Student student) {
+		this.student = student;
+	}
 	
 	
 //	public Coach getCoach() {

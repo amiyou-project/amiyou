@@ -12,10 +12,8 @@ public class CPTReportDTO {
 	private String enrolDate;
 	private String gradDate;
 	private Float gpa;
+	private String report;
 
-	private Student student;
-	
-	private Job job;
 	
 	public CPTReportDTO() {}
 	
@@ -42,6 +40,14 @@ public class CPTReportDTO {
 	}
 	public void setGpa(Float gpa) {
 		this.gpa = gpa;
+	}
+
+	public String getReport() {
+		return report;
+	}
+
+	public void setReport(String report) {
+		this.report = report;
 	}
 	
 }

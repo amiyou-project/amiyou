@@ -1,1 +1,9 @@
-
+faculty-service : faculty
+student-service : student
+tm-service : tm-rest-service
+job-service : first-microservice
+server:
+  port: 80
+spring:
+  application:
+    name: gateway

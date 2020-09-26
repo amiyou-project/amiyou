@@ -7,9 +7,11 @@ import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,7 +21,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import am.i.student.domain.Student;
 import am.i.student.service.IStudentService;
+import dtos.CPTReportDTO;
 import dtos.CourseDTO;
+import dtos.JobSearchReportDTO;
 import am.i.databaseBuilder.Address;
 import am.i.faculty.domain.Course;
 
@@ -37,6 +41,77 @@ public class StudentContoller {
 		   CourseDTO courseDto = modelMapper.map(course, CourseDTO.class);
 		   return courseDto;
 	}
+	
+	@GetMapping("/students")
+	public List<Student> fetchStudents() {
+		return studentService.getAllStudent();
+	}
+	
+	@GetMapping("/students/{id}/courses")
+	public List<CourseDTO> fetchStudentCourses(@PathVariable int id) {
+		List<CourseDTO> courss = studentService.getAllCoursesOfAStudent(id);
+		return  courss;
+	}
+	
+	@GetMapping("/students/{id}/courses/taken")
+	public List<CourseDTO> fetchTakenCourses(@PathVariable int id) {
+		List<CourseDTO> courss = studentService.getAllTakenCourses(id);
+		return  courss;
+	}
+	
+	
+	@GetMapping("/students/courses")
+	public List<CourseDTO> fetchCourses() {
+		List<CourseDTO> courss = studentService.getAllCourses();
+		return  courss;
+	}
+	
+	@GetMapping("/students/{id}")
+	public Student fetchStudById(@PathVariable int id) {
+		return studentService.getStudentById(id);
+	}
+	
+	
+	@GetMapping("/students/byName")
+	public Student fetchBYName(@RequestParam String name) {
+		return studentService.getStudentByName(name);
+	}
+	
+	@PostMapping("/students")
+	public Student createStudentInfo(@RequestBody Student stud) {
+		return studentService.createStudentInfo(stud);
+	}
+	
+	@PutMapping("/students")
+	public Student updateStudentInfo(@RequestBody Student stud) {
+		return studentService.updateStudentInfo(stud);
+	}
+	
+	@GetMapping("/students/{id}/register")
+	public CourseDTO registerAStudent(@PathVariable int id,@RequestParam int course_id) {
+		return studentService.registerInACourse(course_id, id);
+	}
+	
+	@DeleteMapping("/students/{id}/cancel_register")
+	public void cancellStudentRegistration(@PathVariable int id,@RequestParam int course_id) {
+		 studentService.cancellAregisterInACourse(course_id, id);
+	}
+	
+	
+	@PostMapping("/student/{id}/submitCPTReport")
+	public CPTReportDTO submitCPT(@RequestBody CPTReportDTO rprt,@PathVariable int id) {
+		
+		return studentService.submitACPTReport(rprt,id);
+		
+	}
+	
+	@PostMapping("/student/{id}/submitJObReport")
+	public JobSearchReportDTO submitJobCptReport(@RequestBody JobSearchReportDTO rprt,@PathVariable int id) {
+		
+		return studentService.submitJObReport(rprt,id);
+		
+	}
+	
 	
 	@GetMapping("/testinit")
 	public void homeinit1() {
@@ -58,55 +133,6 @@ public class StudentContoller {
 	@GetMapping("/test")
 	public String testtt() {
 		return "My Test";
-	}
-	
-	@GetMapping("/students")
-	public List<Student> fetchStudents() {
-		return studentService.getAllStudent();
-	}
-	
-	@GetMapping("/students/{id}/courses")
-	public List<CourseDTO> fetchStudentCourses(@PathVariable int id) {
-		List<CourseDTO> courss = studentService.getAllCoursesOfAStudent(id);
-		return  courss;
-	}
-	
-	
-	@GetMapping("/students/{id}")
-	public Student fetchStudById(@PathVariable int id) {
-		return studentService.getStudentById(id);
-	}
-	
-	
-	@GetMapping("/students/byName")
-	public Student fetchBYName(@RequestParam String name) {
-		return studentService.getStudentByName(name);
-	}
-	
-	
-	@GetMapping("/teststudents")
-	public List<Student> getStudent() {
-		List<Student> studs = new ArrayList<>();
-		/*
-		 * studs.add(new Student("Gkane",new
-		 * Address("streetA","cityA","stateA",4365,"countrA"),111140,new
-		 * java.util.Date())); studs.add(new Student("Bkane",new
-		 * Address("streetB","cityB","stateB",4365,"countrB"),111141,new
-		 * java.util.Date())); studs.add(new Student("Ckane",new
-		 * Address("streetC","cityC","stateC",4365,"countrC"),111142,new
-		 * java.util.Date()));
-		 */return studs;
-	}
-	
-	@PostMapping("/students")
-	public Student updateCreateStudentInfo(@RequestBody Student stud) {
-		return studentService.updateStudentInfo(stud);
-	}
-	
-	
-	@GetMapping("/students/{id}/update_course")
-	public CourseDTO updateStudentcourse(@PathVariable int id,@RequestParam String method,@RequestParam String title) {
-		return convertToCourseDTO(studentService.updateStudentRegistration(id,title,method));
 	}
 	
 	
